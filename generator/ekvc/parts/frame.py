@@ -45,6 +45,16 @@ def hoop_x(y):
     return xk - (y - L.HOOP_KNEE_Y) * math.tan(L.HOOP_UPPER_LEAN * D2R)
 
 
+def foot_guard_pts():
+    zc, hb, ht = L.Z_D, L.FB_HALF, L.FG_TOP_HALF
+    return [(L.X_FB, YR, zc - hb), (L.X_FB, L.FOOT_GUARD_TOP, zc - ht), (L.X_FB, L.FOOT_GUARD_TOP, zc + ht), (L.X_FB, YR, zc + hb)]
+
+
+def fg_half_at(y):
+    """Half-width (centre-line) of the inclined foot-guard legs at height y."""
+    return L.FB_HALF - (L.FB_HALF - L.FG_TOP_HALF) * (y - YR) / (L.FOOT_GUARD_TOP - YR)
+
+
 def brace_x(y):
     xt = hoop_x(650.0)
     return L.X_RBH + (y - YR) / (650.0 - YR) * (xt - L.X_RBH)
@@ -87,7 +97,7 @@ def plan(s, h):
                        Member("Engine bay X brace 2", xz([(L.X_CRADLE[0], L.Z_EBAY), (L.X_CRADLE[1], L.Z_RM)]), "bracing")]
         P["floor_x"] = [L.X_SEAT_XM, xd, 1000.0]
     elif f == "perimeter":
-        P["left_outer"] = [(L.X_AXM, -L.Z_RBOX), (200.0, zo), (900.0, zo), (1010.0, -296.0)]
+        P["left_outer"] = [(L.X_AXM, -L.Z_RBOX), (150.0, -L.Z_RBOX), (240.0, zo), (900.0, zo), (1010.0, -296.0)]
         P["extra"] += [Member("Perimeter rail right front", xz([(L.X_EBAY1, L.Z_EBAY), (900.0, L.Z_EBAY), (1010.0, 152.0)]), "primary")]
         P["extra"] += [Member(f"Perimeter tie {x:.0f}", xz([(x, L.Z_LM), (x, zo)]), "secondary") for x in (300.0, 620.0, 760.0)]
         P["outriggers"] = False
@@ -101,8 +111,8 @@ def plan(s, h):
         for zz, nm in ((L.Z_LM, "left"), (L.Z_RM, "right")):
             P["extra"].append(Member(f"Upper side rail {nm}", [(hoop_x(230.0), 230.0, zz), (xd, 230.0, zz)], "secondary"))
         P["extra"] += [Member("Floor diagonal", xz([(L.X_SEAT_XM, L.Z_LM), (xd, L.Z_RM)]), "bracing"),
-                       Member("Foot-guard brace left", [(L.X_FB, L.FOOT_GUARD_TOP, zfl), (1110.0, YR, z_at(straight_L, 1110.0))], "bracing"),
-                       Member("Foot-guard brace right", [(L.X_FB, L.FOOT_GUARD_TOP, zfr), (1110.0, YR, z_at(straight_R, 1110.0))], "bracing"),
+                       Member("Foot-guard brace left", [(L.X_FB, 330.0, L.Z_D - fg_half_at(330.0)), (1110.0, YR, z_at(straight_L, 1110.0))], "bracing"),
+                       Member("Foot-guard brace right", [(L.X_FB, 330.0, L.Z_D + fg_half_at(330.0)), (1110.0, YR, z_at(straight_R, 1110.0))], "bracing"),
                        Member("Engine bay diagonal", xz([(L.X_CRADLE[1], L.Z_RM), (700.0, L.Z_EBAY)]), "bracing")]
     elif f == "minimal":
         P["floor_x"] = [L.X_SEAT_XM]
@@ -158,9 +168,9 @@ def members(s, h):
     # front
     zfl, zfr = L.Z_D - L.FB_HALF, L.Z_D + L.FB_HALF
     M.append(Member("Front bulkhead", xz([(L.X_FB, zfl), (L.X_FB, zfr)]), "primary"))
-    M.append(Member("Foot guard hoop", [(L.X_FB, YR, zfl), (L.X_FB, L.FOOT_GUARD_TOP, zfl), (L.X_FB, L.FOOT_GUARD_TOP, zfr),
-                                        (L.X_FB, YR, zfr)], "primary"))
-    M.append(Member("Pedal cross bar", [(L.X_FB, L.PEDAL_XBAR_Y, zfl), (L.X_FB, L.PEDAL_XBAR_Y, zfr)], "secondary"))
+    M.append(Member("Foot guard hoop", foot_guard_pts(), "primary"))
+    pz = fg_half_at(L.PEDAL_XBAR_Y)
+    M.append(Member("Pedal cross bar", [(L.X_FB, L.PEDAL_XBAR_Y, L.Z_D - pz), (L.X_FB, L.PEDAL_XBAR_Y, L.Z_D + pz)], "secondary"))
     M.append(Member("Front axle beam", xz([(W, -KH + 18), (W, KH - 18)]), "primary"))
     zl, zr = z_at(P["L"], xd), z_at(P["R"], xd)
     M.append(Member("Dash hoop (steering support)", [(xd, YR, zl), (xd, 300.0, zl), (xd, 300.0, zr), (xd, YR, zr)], "secondary"))

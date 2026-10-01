@@ -11,7 +11,7 @@ kill switches, brake light, extinguisher, fuel tank, radiator, exhaust, and hitc
 
 | | Common to all 10 styles |
 |---|---|
-| Overall length | **63.3 – 64.6 in bumper face to bumper face** (target < 65 in), nothing protrudes beyond the bumpers |
+| Overall length | **64.1 – 64.6 in bumper face to bumper face, foam included** (limit < 65 in, ≥ 11 mm margin on every kart); nothing protrudes beyond the bumpers |
 | Wheelbase / track | 46.0 – 47.0 in wheelbase; front track 36 – 38 in, rear track 42.0 – 42.8 in (rear stays under 50 in even over the tyres) |
 | Frame tube | **AISI 4130 chromoly, seamless, 25.4 × 1.65 mm** (rule: 1–2 in OD, ≥ 1.2 mm wall, C ≥ 0.18 %) |
 | Engine | Yamaha R15 V2, 149.8 cc single-cylinder 4-stroke, liquid cooled – mounted on the **right**, chain on its inboard side |
@@ -38,6 +38,11 @@ kill switches, brake light, extinguisher, fuel tank, radiator, exhaust, and hitc
 
 Each style folder has its own `README.md` with the full **rule-compliance table**, steering
 data, interference-check results and renders (`output/<style>/renders/`).
+
+**Check results (all ten styles):** 45 / 45 automated rule checks pass, **0 part-to-part clashes**
+(intended welds and bolted joints excluded) and **0 contacts** when both front tyres are swept
+lock-to-lock against the frame, bumpers, connectors, steering and bodywork. The 175 cm reference
+driver has no interference with anything except the seat and steering-wheel grips.
 
 ## Getting SolidWorks `.SLDPRT` / `.SLDASM` files
 
@@ -112,4 +117,5 @@ Changing the tube (e.g. to AISI 1018, 25.4 × 2.0) is a two-line edit (`TUBE_WAL
 * **Hoop braces** run rearward from the hoop bend (650 mm) to the rear bulkhead. If your scrutineers
   want them attached higher, raise `HOOP_KNEE_Y` in `layout.py`.
 * Bodywork is a 3 mm shell for fit/visual purposes; real panels need mounting brackets.
+* Bumper foam is modelled as a continuous sleeve; in practice slit it around the connector tabs and bolts.
 * The orange manikin (`REF driver`) is reference geometry only – suppress it before drawings/BOM.

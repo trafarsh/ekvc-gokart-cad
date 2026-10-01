@@ -576,12 +576,25 @@ def firewall_rear():
                    "Behind seat on rear face of roll hoop; seals driver's back (rule 3.5)", "firewall")
 
 
+def _rot_about(p, c, ax, ang):
+    from ..steering import rot
+    import numpy as _np
+    q = rot(_np.array([ax.x, ax.y, ax.z]), ang) @ _np.array([p.x - c.x, p.y - c.y, p.z - c.z])
+    return V(c.x + q[0], c.y + q[1], c.z + q[2])
+
+
 def anti_intrusion_plate():
-    zc = L.Z_D
-    hw = L.FB_HALF + L.TUBE_OD / 2
-    pts = [(zc - hw, 66), (zc + hw, 66), (zc + hw, L.FOOT_GUARD_TOP - 60)] + \
-          [(zc + (hw) * math.cos(a), L.FOOT_GUARD_TOP - 60 + 72 * math.sin(a)) for a in
-           [math.pi * k / 10 for k in range(1, 10)]] + [(zc - hw, L.FOOT_GUARD_TOP - 60)]
+    """Covers the foot-guard opening; outline follows the hoop centre-line (bolted to it)."""
+    from .frame import foot_guard_pts
+    pts3 = []
+    for sg in G.tube_path_segments(foot_guard_pts(), L.BEND_R):
+        if sg[0] == "line":
+            pts3 += [sg[1], sg[2]]
+        else:
+            _, t1, t2, c, ax, th, din = sg
+            for k in range(9):
+                pts3.append(t1.rotate if False else _rot_about(t1, c, ax, th * k / 8))
+    pts = [(p.z, max(p.y, 66.0)) for p in pts3]
     s = G.plate_yz(pts, L.X_FB + L.TUBE_OD / 2, 2.0)
     for zz in (L.Z_D - 150.0, L.Z_D + 150.0):
         s = s.cut(G.box(L.X_FB, L.X_FB + 40, 50, 130, zz - 8, zz + 14))

@@ -222,7 +222,8 @@ def build(code):
     add(nose, T(0, 0, 0), "Nose", "style")
     pods = {}
     for sd in (-1, 1):
-        pods[sd] = BD.pod(s, h, sd)
+        bow = max(abs(p[2]) for p in side_paths[sd]) - h.z_side
+        pods[sd] = BD.pod(s, h, sd, min_out=bow + BU.FOAM_R + 8.0)
         add(pods[sd], T(0, 0, 0), f"Side pod {'L' if sd < 0 else 'R'}", "style")
     rp = BD.rear_panel(s, h)
     add(rp, T(0, 0, 0), "Rear panel", "style")

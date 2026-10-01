@@ -69,6 +69,7 @@ FIREWALL_Z = 165.0
 # --------------------------------------------------------------- front end (common)
 X_FB = 1290.0           # front bulkhead / foot guard
 FB_HALF = 200.0         # about Z_D
+FG_TOP_HALF = 170.0     # foot-guard hoop top corners (legs lean inward)
 FOOT_GUARD_TOP = 420.0
 PEDAL_PIVOT = (1273.9, 284.5)
 PEDAL_PAD = (1231.0, 205.0)

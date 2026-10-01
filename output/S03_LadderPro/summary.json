@@ -1,0 +1,402 @@
+{
+ "code": "S03",
+ "name": "Ladder Pro",
+ "slug": "S03_LadderPro",
+ "blurb": "Five-cross ladder with an extra upper side rail; U-shaped front/rear bumpers, twin-bar side bumpers.",
+ "wheelbase_in": 47.0,
+ "ftrack_in": 37.0,
+ "rtrack_in": 42.8,
+ "frame": "ladder5",
+ "front_bumper": "U",
+ "rear_bumper": "U",
+ "side_bumper": "double",
+ "nose": "box",
+ "pods": "box",
+ "colour": [
+  0.15,
+  0.55,
+  0.2
+ ],
+ "body_colour": [
+  0.12,
+  0.12,
+  0.12
+ ],
+ "length": "1635.9 mm (64.40 in)",
+ "overall": "1635.9 mm (64.40 in)",
+ "gc": "35.0 mm (Firewall rear)",
+ "hoop": "115.0 mm",
+ "turn": "L 2.81 m / R 2.84 m",
+ "ack": "100 % (inner 33.2 / outer 25.1 deg)",
+ "beta": 7.0,
+ "tube_m": 19.60567707212044,
+ "tube_kg": 18.947369853564187,
+ "rules_pass": 45,
+ "rules_total": 45,
+ "fails": [],
+ "clashes": 0,
+ "sweep": 0,
+ "n_parts": 102,
+ "rules": [
+  {
+   "ref": "1.1",
+   "rule": "Wheelbase",
+   "requirement": "<= 60 in (1524 mm)",
+   "value": "1193.8 mm (47.00 in)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.1",
+   "rule": "Larger track (centre-to-centre)",
+   "requirement": "<= 50 in (1270 mm)",
+   "value": "1087.1 mm (42.80 in)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.1",
+   "rule": "Rear track outside-to-outside (conservative)",
+   "requirement": "<= 50 in",
+   "value": "1267.5 mm (49.90 in)",
+   "status": "PASS",
+   "note": "Kept under 50 in even if measured over the tyres"
+  },
+  {
+   "ref": "1.1",
+   "rule": "Wheels not in line longitudinally",
+   "requirement": "front track != rear track",
+   "value": "F 940 / R 1087 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "User",
+   "rule": "Front bumper to rear bumper (incl. foam)",
+   "requirement": "< 65 in (1651 mm)",
+   "value": "1635.9 mm (64.40 in)",
+   "status": "PASS",
+   "note": "margin 15.1 mm"
+  },
+  {
+   "ref": "User",
+   "rule": "Overall length (any component)",
+   "requirement": "< 65 in, nothing beyond bumpers",
+   "value": "1635.9 mm (64.40 in)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "info",
+   "rule": "Overall width",
+   "requirement": "(info)",
+   "value": "1312 mm (51.7 in)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.2",
+   "rule": "Frame tube OD / wall",
+   "requirement": "1-2 in OD, >= 1.2 mm wall, seamless round",
+   "value": "25.4 x 1.65 mm, AISI 4130 chromoly, seamless (C 0.28-0.33 %)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.2",
+   "rule": "Open tube end capped",
+   "requirement": ">= 1 open end, capped",
+   "value": "Silencer-stay end capped (6 mm plug)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.3",
+   "rule": "Ground clearance (lowest non-tyre point)",
+   "requirement": "1-2 in (25.4-50.8 mm)",
+   "value": "35.0 mm (Firewall rear)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.4",
+   "rule": "Hitch points",
+   "requirement": "front + rear, not on bumper, yellow",
+   "value": "2 eyes on bulkhead tubes",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.5",
+   "rule": "Roll hoop height above helmet (175 cm driver)",
+   "requirement": ">= 3 in (76.2 mm)",
+   "value": "115.0 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.5",
+   "rule": "Roll hoop construction",
+   "requirement": "one bent tube + 2 braces L/R",
+   "value": "single bent tube, 2 rearward braces + cross bar",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.6",
+   "rule": "Front bumper ahead of front bulkhead",
+   "requirement": ">= 4 in (101.6 mm)",
+   "value": "114.7 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.6",
+   "rule": "Rear bumper behind rear bulkhead",
+   "requirement": ">= 2 in (50.8 mm)",
+   "value": "56.8 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.6",
+   "rule": "Bumpers cover tyres laterally",
+   "requirement": "bumper reaches outer tyre edge",
+   "value": "front +22 mm, rear +4 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "7.1.1",
+   "rule": "No full-round bumper",
+   "requirement": "side bumpers separate from front/rear",
+   "value": "min X gap 344 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "1.6",
+   "rule": "Bumper padding",
+   "requirement": "foam pipe insulation",
+   "value": "12 mm closed-cell foam on all bumpers",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "2.2",
+   "rule": "Tyres",
+   "requirement": "F 4.5x10.0-5, R 7.1x11.0-5 (D1)",
+   "value": "as specified, 4 wheels",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "3.1",
+   "rule": "Seat",
+   "requirement": "bucket seat, >= 4 mounts on primary members, lock nuts",
+   "value": "GRP bucket, 4 mounts",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "3.2",
+   "rule": "Foot guard above toe",
+   "requirement": ">= 3 in (76.2 mm) + anti-intrusion plate",
+   "value": "91.7 mm, 2 mm Al plate",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "3.3",
+   "rule": "Back angle",
+   "requirement": "<= 30 deg from vertical",
+   "value": "20 deg",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "3.5",
+   "rule": "Firewall",
+   "requirement": ">= 1.5 mm Al, no holes, nothing mounted",
+   "value": "1.5 mm 5052 side + rear panels",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "4.1",
+   "rule": "Steering mechanism",
+   "requirement": "mechanical, no rack & pinion / by-wire",
+   "value": "column + pitman arm + 2 tie rods (Ackermann)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "4.2",
+   "rule": "Steering wheel",
+   "requirement": ">= 10 in OD full circle",
+   "value": "280 mm round",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "4.3",
+   "rule": "Steering stops",
+   "requirement": "positive stops on chassis",
+   "value": "2 adjustable stops on column lower bracket",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "4.4",
+   "rule": "Turning radius (outer front wheel)",
+   "requirement": "<= 3 m",
+   "value": "L 2.81 m / R 2.84 m",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "info",
+   "rule": "Ackermann at lock",
+   "requirement": "(design target ~100 %)",
+   "value": "100 % (inner 33.2 / outer 25.1 deg)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "5.1",
+   "rule": "Brake system",
+   "requirement": "hydraulic, acts on both rear wheels",
+   "value": "single 180 mm disc on live axle, twin-piston caliper",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "5.2",
+   "rule": "Brake pedal",
+   "requirement": "foot operated, steel/Al, travel stop",
+   "value": "AISI 4130 pedal with stop",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "5.3",
+   "rule": "Brake over-travel switch",
+   "requirement": "in series with kill switches",
+   "value": "fitted ahead of pedal",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "5.6",
+   "rule": "Brake light",
+   "requirement": "red, top centre of roll hoop",
+   "value": "LED on hoop top centre",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.2.1",
+   "rule": "Engine",
+   "requirement": "single cyl 4-stroke petrol <= 160 cc",
+   "value": "Yamaha R15 V2 149.8 cc liquid cooled",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.2.2",
+   "rule": "Engine mounting tabs",
+   "requirement": ">= 5 mm + damping",
+   "value": "6 mm tabs + rubber isolators",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.2.3",
+   "rule": "Fuel tank",
+   "requirement": "<= 3 L, side-engine fuel area",
+   "value": "2.79 L behind seat (left)",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.2.3",
+   "rule": "Radiator",
+   "requirement": "behind firewall",
+   "value": "behind rear firewall, above axle",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.2.4",
+   "rule": "Exhaust outlet",
+   "requirement": "behind driver, <= 650 mm high",
+   "value": "X -186 mm, height 370 mm",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.4",
+   "rule": "Transmission",
+   "requirement": "chain drive, RWD, scatter shield",
+   "value": "#428 chain 14/34, Al scatter shield",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.4.2",
+   "rule": "Pedal layout",
+   "requirement": "C-B-A left to right, throttle stop",
+   "value": "clutch / brake / throttle",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.5",
+   "rule": "Kill switches",
+   "requirement": ">= 2 (driver + both sides of hoop), red",
+   "value": "3 fitted",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.9",
+   "rule": "Fire extinguisher",
+   "requirement": "1 kg in cockpit, not on firewall",
+   "value": "1 kg ABC on left main rail",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "6.10",
+   "rule": "Fasteners",
+   "requirement": "metal, grade 8.8, lock nuts",
+   "value": "M8 8.8 + nyloc on all connectors",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "7.1",
+   "rule": "Bodywork",
+   "requirement": "front (to steering wheel), L/R sides, rear",
+   "value": "nose + 2 pods + rear panel",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "7.1.2",
+   "rule": "Floor close-out",
+   "requirement": ">= 1 mm rigid, firewall to front",
+   "value": "2.0 mm aluminium",
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "ref": "9",
+   "rule": "Number stickers",
+   "requirement": "6 in yellow: front, both sides, rear",
+   "value": "4 fitted",
+   "status": "PASS",
+   "note": ""
+  }
+ ]
+}

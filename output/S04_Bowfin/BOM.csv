@@ -1,0 +1,103 @@
+Part number,Name,Qty,Group,Material,Notes,STEP file (convert to .SLDPRT)
+C-BOD-01,Kart number sticker 6in yellow (X),2,body,"Vinyl, yellow background, black numerals","Rule 9 - 6 in circular, yellow/black",../common/parts/C-BOD-01_Kart_number_sticker_6in_yellow_X.step
+C-BOD-02,Kart number sticker 6in yellow (Z),2,body,"Vinyl, yellow background, black numerals","Rule 9 - 6 in circular, yellow/black",../common/parts/C-BOD-02_Kart_number_sticker_6in_yellow_Z.step
+S04-BOD-01,Nose front panel round,1,body,GRP / ABS 3 mm,Covers front bumper to steering wheel (rule 7.1); metal fasteners to foot guard & front bumper,parts/S04-BOD-01_Nose_front_panel_round.step
+S04-BOD-02,Side pod left round,1,body,GRP / ABS 3 mm,Left/right side bodywork on side bumper (rule 7.1.1),parts/S04-BOD-02_Side_pod_left_round.step
+S04-BOD-03,Side pod right round,1,body,GRP / ABS 3 mm,Left/right side bodywork on side bumper (rule 7.1.1),parts/S04-BOD-03_Side_pod_right_round.step
+S04-BOD-04,Rear panel,1,body,GRP / ABS 3 mm,"Rear bodywork behind rear tyres, on rear bumper (rule 7.1.1)",parts/S04-BOD-04_Rear_panel.step
+S04-BOD-10,Floor close-out pan 2mm,1,body,Aluminium 5052-H32 2 mm,"0.530 m2, gaps < 3 mm, bolted M6 every 150 mm (rule 7.1.2)",parts/S04-BOD-10_Floor_close_out_pan_2mm.step
+C-BRK-01,Brake disc 180x5,1,brakes,"Stainless 420, hardened","Single rear disc on live axle, locks both rear wheels (rule 5.1)",../common/parts/C-BRK-01_Brake_disc_180x5.step
+C-BRK-02,Disc carrier 40mm keyed,1,brakes,Al 7075-T6,"Keyed clamp hub, 4x M8 PCD 70",../common/parts/C-BRK-02_Disc_carrier_40mm_keyed.step
+C-BRK-03,Brake caliper twin piston,1,brakes,Cast aluminium (bought out),"Hydraulic caliper, DOT4",../common/parts/C-BRK-03_Brake_caliper_twin_piston.step
+C-BRK-04,Caliper mounting bracket 6mm,1,brakes,AISI 4130 plate 6 mm,Welded to rear bulkhead,../common/parts/C-BRK-04_Caliper_mounting_bracket_6mm.step
+C-BRK-05,Brake master cylinder 5/8in with reservoir,1,brakes,"Bought out, DOT4",Own fluid reservoir (rule 5.1); pushed by brake pedal upper lever,../common/parts/C-BRK-05_Brake_master_cylinder_5_8in_with_reservoir.step
+C-BRK-06,Master cylinder bracket,1,brakes,AISI 4130 plate 6 mm,Welded to foot-guard top bar,../common/parts/C-BRK-06_Master_cylinder_bracket.step
+C-BRK-07,Brake over-travel switch,1,brakes,"Bought out, NC micro-switch IP67",Hit by the brake pedal arm only on over-travel; in series with kill switches (rule 5.3),../common/parts/C-BRK-07_Brake_over_travel_switch.step
+S04-BRK-08,Brake line 3/16in braided,1,brakes,Stainless braided PTFE hose,Metal P-clips every 300 mm; routed outboard of left main rail (rule 5.4),parts/S04-BRK-08_Brake_line_3_16in_braided.step
+S04-BMP-01,Front bumper,1,bumpers,"AISI 4130 chromoly, seamless (C 0.28-0.33 %) - single seamless tube","Single bent tube, arc; >= 4 in ahead of front bulkhead",parts/S04-BMP-01_Front_bumper.step
+S04-BMP-02,Rear bumper,1,bumpers,"AISI 4130 chromoly, seamless (C 0.28-0.33 %) - single seamless tube","Single bent tube, arc; >= 2 in behind rear bulkhead",parts/S04-BMP-02_Rear_bumper.step
+S04-BMP-03,Side bumper left,1,bumpers,"AISI 4130 chromoly, seamless (C 0.28-0.33 %) - single seamless tube",Single bent tube (arc); separate from front/rear (no full-round bumper),parts/S04-BMP-03_Side_bumper_left.step
+S04-BMP-04,Side bumper right,1,bumpers,"AISI 4130 chromoly, seamless (C 0.28-0.33 %) - single seamless tube",Single bent tube (arc); separate from front/rear (no full-round bumper),parts/S04-BMP-04_Side_bumper_right.step
+S04-BMP-05,Front bumper foam,1,bumpers,Closed-cell foam pipe insulation 12 mm,Rule 1.6 - padding over bumper,parts/S04-BMP-05_Front_bumper_foam.step
+S04-BMP-06,Rear bumper foam,1,bumpers,Closed-cell foam pipe insulation 12 mm,Rule 1.6 - padding over bumper,parts/S04-BMP-06_Rear_bumper_foam.step
+S04-BMP-07,Side bumper left foam,1,bumpers,Closed-cell foam pipe insulation 12 mm,Rule 1.6 - padding over bumper,parts/S04-BMP-07_Side_bumper_left_foam.step
+S04-BMP-08,Side bumper right foam,1,bumpers,Closed-cell foam pipe insulation 12 mm,Rule 1.6 - padding over bumper,parts/S04-BMP-08_Side_bumper_right_foam.step
+S04-CON-01A,Front connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-01A_Front_connector_chassis_tab.step
+S04-CON-01B,Front connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-01B_Front_connector_bumper_tab.step
+S04-CON-02A,Front connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-02A_Front_connector_chassis_tab.step
+S04-CON-02B,Front connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-02B_Front_connector_bumper_tab.step
+S04-CON-03A,Rear connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-03A_Rear_connector_chassis_tab.step
+S04-CON-03B,Rear connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-03B_Rear_connector_bumper_tab.step
+S04-CON-04A,Rear connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-04A_Rear_connector_chassis_tab.step
+S04-CON-04B,Rear connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-04B_Rear_connector_bumper_tab.step
+S04-CON-05A,Side L connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-05A_Side_L_connector_chassis_tab.step
+S04-CON-05B,Side L connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-05B_Side_L_connector_bumper_tab.step
+S04-CON-06A,Side L connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-06A_Side_L_connector_chassis_tab.step
+S04-CON-06B,Side L connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-06B_Side_L_connector_bumper_tab.step
+S04-CON-07A,Side R connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-07A_Side_R_connector_chassis_tab.step
+S04-CON-07B,Side R connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-07B_Side_R_connector_bumper_tab.step
+S04-CON-08A,Side R connector chassis tab,1,connectors,AISI 4130 plate 6 mm,Welded to chassis; 2x M8 8.8 + nyloc to bumper tab,parts/S04-CON-08A_Side_R_connector_chassis_tab.step
+S04-CON-08B,Side R connector bumper tab,1,connectors,AISI 4130 plate 6 mm,Welded to bumper tube; bolts to chassis tab,parts/S04-CON-08B_Side_R_connector_bumper_tab.step
+C-COL-01,Radiator with electric fan,1,cooling,Bought out (R15 V2 radiator) + 7in fan,Behind firewall in engine mounting area (rule 6.2.3),../common/parts/C-COL-01_Radiator_with_electric_fan.step
+C-COL-02,Coolant reservoir bottle,1,cooling,HDPE bottle (bought out),In fuel mounting area as required (rule 6.2.3),../common/parts/C-COL-02_Coolant_reservoir_bottle.step
+C-DRV-02,Axle bearing 40mm 3-bolt flange,3,drivetrain,"Cast iron housing, 6208 insert","3-bolt flange bearing, M10 bolts on PCD 98",../common/parts/C-DRV-02_Axle_bearing_40mm_3_bolt_flange.step
+C-DRV-03,Axle bearing hanger plate 6mm,3,drivetrain,AISI 4130 plate 6 mm,Welded to rear bulkhead and axle cross member (x3),../common/parts/C-DRV-03_Axle_bearing_hanger_plate_6mm.step
+C-DRV-04,Engine sprocket 14T 428,1,drivetrain,"C45 steel, induction hardened","14T #428, PCD 57.1 mm",../common/parts/C-DRV-04_Engine_sprocket_14T_428.step
+C-DRV-05,Axle sprocket 34T 428,1,drivetrain,"C45 steel, induction hardened","34T #428, PCD 137.6 mm",../common/parts/C-DRV-05_Axle_sprocket_34T_428.step
+C-DRV-06,Sprocket carrier 40mm keyed,1,drivetrain,Al 7075-T6,Keyed clamp hub for 34T sprocket,../common/parts/C-DRV-06_Sprocket_carrier_40mm_keyed.step
+C-DRV-07,Chain 428 66 links,1,drivetrain,Steel roller chain #428 (bought out),"Centre distance 263.6 mm, 65.99 pitches",../common/parts/C-DRV-07_Chain_428_66_links.step
+C-DRV-08,Scatter shield chain guard,1,drivetrain,Aluminium 5052 1.5 mm,"Rule 6.4.3 - rigidly bolted to chassis tabs, no contact with moving parts",../common/parts/C-DRV-08_Scatter_shield_chain_guard.step
+S04-DRV-01,Rear axle 40x4 L1142,1,drivetrain,EN24 / 4140 steel tube 40 x 4,"Live axle, length 1142 mm",parts/S04-DRV-01_Rear_axle_40x4_L1142.step
+C-ELE-01,12V 5Ah sealed battery,1,electrics,Sealed AGM 12 V 5 Ah (YTX5L),Aux battery <= 12 V 10 Ah (rule 6.3.1),../common/parts/C-ELE-01_12V_5Ah_sealed_battery.step
+C-ELE-02,Battery and ECU tray,1,electrics,AISI 4130 2 mm,Bolted to battery support member,../common/parts/C-ELE-02_Battery_and_ECU_tray.step
+C-ELE-03,ECU and fuse box (blade fuses),1,electrics,Bought out,Automotive blade fuses on every LV circuit (rule 6.6),../common/parts/C-ELE-03_ECU_and_fuse_box_blade_fuses.step
+C-ENG-01,Yamaha R15 V2 engine envelope 150cc,1,engine,Bought out - Yamaha R15 V2 149.8 cc single cyl 4-stroke liquid cooled,Envelope model (+/-10 mm). Engine number pad on left side faces the cockpit side for inspection.,../common/parts/C-ENG-01_Yamaha_R15_V2_engine_envelope_150cc.step
+C-ENG-02,Engine mount bracket 5mm + isolator,4,engine,AISI 4130 plate 6 mm (>= 5 mm rule 6.2.2),Welded to cradle tube; M10 bolt through rubber isolator,../common/parts/C-ENG-02_Engine_mount_bracket_5mm_isolator.step
+C-ENG-03,Anti-vibration rubber mount 34x15,4,engine,Natural rubber 60 Sh A,Vibration damping (rule 6.2.2),../common/parts/C-ENG-03_Anti_vibration_rubber_mount_34x15.step
+C-GEA-01,Gear lever with linkage,1,engine,AISI 4130 bar + rod ends,Rigidly mounted pivot (rule 6.4.1); passes over the low front section of the firewall,../common/parts/C-GEA-01_Gear_lever_with_linkage.step
+C-EXH-01,Exhaust header 32mm,1,exhaust,SS304 32 x 1.5,Ceramic-wrapped; runs outboard above the engine-bay rail,../common/parts/C-EXH-01_Exhaust_header_32mm.step
+C-EXH-02,Silencer with rear outlet,1,exhaust,"SS304, < 120 dB",Outlet behind driver at 370 mm height (rule 6.2.4 <= 650 mm),../common/parts/C-EXH-02_Silencer_with_rear_outlet.step
+C-EXH-03,Exhaust heat shield,1,exhaust,Perforated SS 0.8 mm,Shields muffler outboard/top (rule 6.2.4),../common/parts/C-EXH-03_Exhaust_heat_shield.step
+C-FST-01,Bolt M8x30 8.8 hex (Z),8,fasteners,ISO 4017 M8 grade 8.8 zinc,Rule 6.10 - metric grade 8.8,../common/parts/C-FST-01_Bolt_M8x30_8_8_hex_Z.step
+C-FST-02,Bolt M8x30 8.8 hex (X),8,fasteners,ISO 4017 M8 grade 8.8 zinc,Rule 6.10 - metric grade 8.8,../common/parts/C-FST-02_Bolt_M8x30_8_8_hex_X.step
+C-FST-03,Nut M8 nyloc (Z),8,fasteners,ISO 10511 M8 class 8,Lock nut (rule 6.10),../common/parts/C-FST-03_Nut_M8_nyloc_Z.step
+C-FST-04,Nut M8 nyloc (X),8,fasteners,ISO 10511 M8 class 8,Lock nut (rule 6.10),../common/parts/C-FST-04_Nut_M8_nyloc_X.step
+C-FWL-01,Firewall side panel 1.5mm,1,firewall,Aluminium 5052 1.5 mm,"Seals driver from engine/chain on the right; no holes, nothing mounted on it (rule 3.5)",../common/parts/C-FWL-01_Firewall_side_panel_1_5mm.step
+C-FWL-02,Firewall rear panel 1.5mm,1,firewall,Aluminium 5052 1.5 mm,Behind seat on rear face of roll hoop; seals driver's back (rule 3.5),../common/parts/C-FWL-02_Firewall_rear_panel_1_5mm.step
+C-FWL-03,Anti-intrusion plate 2mm,1,firewall,Aluminium 6061-T6 2 mm,Bolted to foot guard (rule 3.2),../common/parts/C-FWL-03_Anti_intrusion_plate_2mm.step
+S04-FRM-01,Main frame Bowfin,1,frame,"AISI 4130 chromoly, seamless (C 0.28-0.33 %)","28 members, 18.3 m of 25.4x1.65 tube (~17.7 kg tube mass), multi-body weldment",parts/S04-FRM-01_Main_frame_Bowfin.step
+C-FUE-01,Fuel tank 2.79L aluminium,1,fuel,Al 5052 2 mm welded,"Internal volume 2.79 L (rule <= 3 L); behind seat in fuel mounting area, left side",../common/parts/C-FUE-01_Fuel_tank_2_79L_aluminium.step
+C-FUE-02,Fuel tank tray and straps,1,fuel,AISI 4130 2 mm + steel straps,Bolted to brace cross bar behind firewall (metal fasteners only),../common/parts/C-FUE-02_Fuel_tank_tray_and_straps.step
+C-FUE-03,Fuel line 8mm with clamps,1,fuel,Fuel-rated hose + metal P-clips,Rigidly clamped to frame (rule 6.2.3),../common/parts/C-FUE-03_Fuel_line_8mm_with_clamps.step
+C-HIT-01,Hitch eye 8mm yellow,2,hitch,"AISI 4130 plate 8 mm, yellow paint","Front and rear hitch points, not on bumper, separate from jack points (rule 1.4)",../common/parts/C-HIT-01_Hitch_eye_8mm_yellow.step
+C-PED-01,Clutch pedal,1,pedals,Al 6061-T6 / AISI 4130 (brake),"Hanging pedal on 16 mm shaft, pad at Z=-160 (CBA left to right, rule 6.4.2)",../common/parts/C-PED-01_Clutch_pedal.step
+C-PED-02,Brake pedal,1,pedals,Al 6061-T6 / AISI 4130 (brake),"Hanging pedal on 16 mm shaft, pad at Z=-10 (CBA left to right, rule 6.4.2)",../common/parts/C-PED-02_Brake_pedal.step
+C-PED-03,Throttle pedal,1,pedals,Al 6061-T6 / AISI 4130 (brake),"Hanging pedal on 16 mm shaft, pad at Z=80 (CBA left to right, rule 6.4.2)",../common/parts/C-PED-03_Throttle_pedal.step
+C-PED-04,"Pedal shaft, hangers and pedal stops",1,pedals,AISI 4130,"Hangers welded to foot-guard cross bar; stops limit pedal travel (rule 5.2, 6.4.2)",../common/parts/C-PED-04_Pedal_shaft_hangers_and_pedal_stops.step
+S04-REF-01,REF driver 175cm (not manufactured),1,reference,Reference geometry only,"175 cm male, back 20 deg, helmet top for roll-hoop check",parts/S04-REF-01_REF_driver_175cm_not_manufactured.step
+C-SAF-01,Kill switch enclosure,3,safety,"Bought out, IP65",Rule 6.5 - push-off twist-release; mount on hinge tab welded to chassis,../common/parts/C-SAF-01_Kill_switch_enclosure.step
+C-SAF-01B,Kill switch red mushroom head,3,safety,Bought out,Part of C-SAF-01,../common/parts/C-SAF-01B_Kill_switch_red_mushroom_head.step
+C-SAF-02,Kill switch mounting hinge tab,3,safety,AISI 4130 plate 6 mm,Welded to chassis tube (rule 6.5),../common/parts/C-SAF-02_Kill_switch_mounting_hinge_tab.step
+C-SAF-03,Brake light LED red,1,safety,Bought out 12 V LED,Top centre of roll hoop (rule 5.6),../common/parts/C-SAF-03_Brake_light_LED_red.step
+C-SAF-03L,Brake light lens,1,safety,Polycarbonate red,Part of C-SAF-03,../common/parts/C-SAF-03L_Brake_light_lens.step
+C-SAF-04,Fire extinguisher 1kg ABC,1,safety,Bought out 1 kg ABC dry powder,"Rigidly mounted in driver compartment, not on firewall (rule 6.9)",../common/parts/C-SAF-04_Fire_extinguisher_1kg_ABC.step
+C-SAF-05,Extinguisher quick-release bracket,1,safety,"Steel, Drake-type QR",Welded to left main rail,../common/parts/C-SAF-05_Extinguisher_quick_release_bracket.step
+C-SEA-01,Bucket seat 360 fibreglass,1,seat,GRP fibreglass 5 mm,Back angle 20 deg from vertical (rule <= 30); 4 mounts (rule 3.1),../common/parts/C-SEA-01_Bucket_seat_360_fibreglass.step
+C-SEA-02,Seat front mount block,2,seat,AISI 4130 5 mm plate stack,"Welded on seat cross member (primary member), M8 + nyloc",../common/parts/C-SEA-02_Seat_front_mount_block.step
+C-SEA-03,Seat back mount tab,2,seat,AISI 4130 plate 6 mm,"Welded on roll-hoop cross bar, M8 + nyloc",../common/parts/C-SEA-03_Seat_back_mount_tab.step
+C-STR-01,Steering column 22x3,1,steering,AISI 4130 tube 22 x 3,"Length 537 mm, 33 deg below horizontal",../common/parts/C-STR-01_Steering_column_22x3.step
+C-STR-02,Steering wheel 280 OD round,1,steering,"Aluminium spokes, leather-wrapped rim","Full circle 280 mm OD (rule 4.2 >= 254 mm), quick-release hub",../common/parts/C-STR-02_Steering_wheel_280_OD_round.step
+C-STR-03,Pitman steering arm 8mm,1,steering,AISI 4130 plate 8 mm,"Welded to column, tie-rod pad at R90 (2x M8 vertical)",../common/parts/C-STR-03_Pitman_steering_arm_8mm.step
+C-STR-04,Column upper bearing bracket,1,steering,AISI 4130 + bronze bush,Bolted to dash bar (2x M8),../common/parts/C-STR-04_Column_upper_bearing_bracket.step
+C-STR-05,Column lower bracket with steering stops,1,steering,AISI 4130 plate 8 mm,Welded to front axle beam; M10 stop bolts set to full-lock pitman angle,../common/parts/C-STR-05_Column_lower_bracket_with_steering_stops.step
+C-STR-06,King pin bolt M10x130 + nyloc,2,steering,Grade 10.9 bolt + Nyloc nut,Caster 10 deg,../common/parts/C-STR-06_King_pin_bolt_M10x130_nyloc.step
+S04-STR-11,Steering knuckle left,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 9.00 deg (Ackermann tuned), caster 10 deg",parts/S04-STR-11_Steering_knuckle_left.step
+S04-STR-12,Steering knuckle right,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 9.00 deg (Ackermann tuned), caster 10 deg",parts/S04-STR-12_Steering_knuckle_right.step
+S04-STR-13,Tie rod left C-C 293,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 293.2 mm (adjustable +-10),parts/S04-STR-13_Tie_rod_left_C_C_293.step
+S04-STR-14,Tie rod right C-C 413,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 413.0 mm (adjustable +-10),parts/S04-STR-14_Tie_rod_right_C_C_413.step
+C-WHL-01,Front tyre 4.5x10.0-5 slick,2,wheels,Rubber (bought out),Rule 2.2 table 1 dry tyre 4.5x10.0-5,../common/parts/C-WHL-01_Front_tyre_4_5x10_0_5_slick.step
+C-WHL-02,Rear tyre 7.1x11.0-5 slick,2,wheels,Rubber (bought out),Rule 2.2 table 1 dry tyre 7.1x11.0-5,../common/parts/C-WHL-02_Rear_tyre_7_1x11_0_5_slick.step
+C-WHL-03,Front rim 5in x 4.5,2,wheels,Cast aluminium A356-T6,Bolts to hub with 3x M8 on PCD 58,../common/parts/C-WHL-03_Front_rim_5in_x_4_5.step
+C-WHL-04,Rear rim 5in x 7.1,2,wheels,Cast aluminium A356-T6,Bolts to hub with 3x M8 on PCD 58,../common/parts/C-WHL-04_Rear_rim_5in_x_7_1.step
+C-WHL-05,Front hub 20mm,2,wheels,EN8 steel,"Front hub on stub axle, 3x M8 studs PCD 58",../common/parts/C-WHL-05_Front_hub_20mm.step
+C-WHL-06,Rear hub 40mm keyed,2,wheels,Al 7075-T6,Keyed clamp hub on 40 mm axle,../common/parts/C-WHL-06_Rear_hub_40mm_keyed.step

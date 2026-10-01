@@ -31,10 +31,10 @@ def profile(shape, hw, ytop, ybot, n=26, zc=0.0, lip=None):
         c = min(45.0, 0.3 * h, 0.3 * hw)
         pts = [(-hw, ybot), (-hw, ytop - c), (-hw + c, ytop), (hw - c, ytop), (hw, ytop - c), (hw, ybot)]
     elif shape == "arrow":
-        pts = [(-hw, ybot), (-hw, ytop - 0.35 * h), (-0.25 * hw, ytop - 0.05 * h), (0, ytop), (0.25 * hw, ytop - 0.05 * h),
-               (hw, ytop - 0.35 * h), (hw, ybot)]
+        pts = [(-hw, ybot), (-hw, ytop - 0.18 * h), (-0.3 * hw, ytop - 0.03 * h), (0, ytop), (0.3 * hw, ytop - 0.03 * h),
+               (hw, ytop - 0.18 * h), (hw, ybot)]
     elif shape in ("round", "f1", "slim"):
-        k = 0.55 if shape != "f1" else 0.7
+        k = 0.45
         ym = ytop - k * h
         pts = [(-hw, ybot)]
         for a in np.linspace(math.pi, 0, 17):
@@ -130,7 +130,7 @@ NOSE = {
     "round": ("round", 285, 288, 260, 305, 470, 482, 300, 140),
     "wedge": ("wedge", 285, 288, 285, 300, 470, 476, 230, 140),
     "f1": ("f1", 270, 285, 150, 300, 470, 478, 250, 150),
-    "slim": ("round", 262, 270, 240, 300, 470, 476, 270, 140),
+    "slim": ("round", 262, 284, 240, 300, 470, 476, 270, 140),
 }
 
 
@@ -191,8 +191,9 @@ def _pod_contour(shape, z_in, z_out, ytop, ybot, ylip, sd, n=24):
     return [(z_in - z, y) for z, y in loc][::-1]
 
 
-def pod(s, h, sd):
+def pod(s, h, sd, min_out=0.0):
     shape, x0, xoff, ytop, ybot, out, ylip = PODS[s.pods]
+    out = max(out, min_out)
     x1 = s.W - xoff
     z_in = sd * (h.z_side - 60.0)
     z_out = sd * (h.z_side + out)
