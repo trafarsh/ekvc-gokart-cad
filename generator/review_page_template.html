@@ -1,0 +1,238 @@
+<title>EKVC Kart Lineup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: scrutineering sheet - spec strip, 10-kart lineup grid, one detail sheet for the selected kart */
+:root {
+  --bg: #f1f2ee;
+  --surface: #ffffff;
+  --ink: #1b2127;
+  --muted: #5a6670;
+  --line: #d6dad9;
+  --steel: #36556e;
+  --sticker: #f2c200;
+  --sticker-ink: #111111;
+  --pass: #2b7a4b;
+  --pass-bg: #e3f1e8;
+  --fail: #b3261e;
+  --fail-bg: #f9e3e1;
+  --photo: #ffffff;
+  --display: "Saira Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181c; --surface: #1c2227; --ink: #e6eaed; --muted: #9aa6af; --line: #2d353c; --steel: #8fb3cf;
+    --sticker: #f2c200; --sticker-ink: #111111; --pass: #6cc896; --pass-bg: #18301f; --fail: #ff8a80; --fail-bg: #3a1c1a;
+    --photo: #f4f5f2; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181c; --surface: #1c2227; --ink: #e6eaed; --muted: #9aa6af; --line: #2d353c; --steel: #8fb3cf;
+  --sticker: #f2c200; --sticker-ink: #111111; --pass: #6cc896; --pass-bg: #18301f; --fail: #ff8a80; --fail-bg: #3a1c1a;
+  --photo: #f4f5f2; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--body); margin: 0; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); padding-block: 28px 64px; display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: 0.01em; text-wrap: balance; margin: 0; line-height: 1.05; }
+h1 { font-size: clamp(2.4rem, 5.4vw, 4rem); text-transform: uppercase; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); text-transform: uppercase; }
+h3 { font-size: 1.35rem; }
+.eyebrow { font: 600 0.78rem/1.2 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--steel); }
+p { margin: 0; max-width: 68ch; }
+.muted { color: var(--muted); }
+header { display: grid; gap: 14px; }
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); margin-top: 10px; }
+.spec { padding: 12px 14px 12px 0; display: grid; gap: 2px; min-width: 0; }
+.spec .k { font: 500 0.72rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.spec .v { font: 600 1.25rem/1.2 var(--display); }
+.disc { width: 46px; height: 46px; border-radius: 50%; background: var(--sticker); color: var(--sticker-ink); display: grid; place-items: center;
+  font: 700 1.25rem/1 var(--display); flex: none; box-shadow: inset 0 0 0 2px rgba(0,0,0,0.12); }
+.disc.big { width: 64px; height: 64px; font-size: 1.7rem; }
+.lineup { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0; text-align: left; cursor: pointer; color: inherit;
+  font: inherit; display: grid; grid-template-rows: auto 1fr; overflow: hidden; transition: border-color .15s, transform .15s; }
+.card:hover { border-color: var(--steel); }
+.card:focus-visible { outline: 3px solid var(--sticker); outline-offset: 2px; }
+.card[aria-pressed="true"] { border-color: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+.card .ph { background: var(--photo); aspect-ratio: 4 / 3; display: grid; place-items: center; max-width: 100%; }
+.card .ph img { width: 100%; height: 100%; object-fit: contain; }
+.card .info { padding: 12px 14px 14px; display: grid; gap: 8px; align-content: start; }
+.card .top { display: flex; gap: 10px; align-items: center; }
+.card .nm { font: 700 1.3rem/1 var(--display); text-transform: uppercase; }
+.card .sw { width: 12px; height: 12px; border-radius: 2px; display: inline-block; vertical-align: -1px; margin-right: 4px; border: 1px solid rgba(0,0,0,.2); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font: 0.8rem/1.45 var(--mono); }
+.kv span:nth-child(odd) { color: var(--muted); }
+.kv span { font-variant-numeric: tabular-nums; min-width: 0; }
+.pill { display: inline-block; font: 600 0.72rem/1 var(--mono); padding: 5px 7px; border-radius: 3px; letter-spacing: 0.04em; }
+.pill.pass { background: var(--pass-bg); color: var(--pass); }
+.pill.fail { background: var(--fail-bg); color: var(--fail); }
+.detail { display: grid; gap: 22px; border-top: 2px solid var(--ink); padding-top: 22px; }
+.dhead { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.dhead > div { min-width: 0; }
+.dgrid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; }
+@media (max-width: 860px) { .dgrid { grid-template-columns: 1fr; } }
+.viewer { background: var(--photo); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: grid; }
+.viewer img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; display: block; max-width: 100%; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tab { font: 500 0.78rem var(--mono); padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tab:focus-visible { outline: 3px solid var(--sticker); outline-offset: 1px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 0.72rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+td.num, td.ref { font-family: var(--mono); font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.side { display: grid; gap: 16px; align-content: start; min-width: 0; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; display: grid; gap: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font: 500 0.75rem var(--mono); border: 1px solid var(--line); padding: 4px 8px; border-radius: 3px; color: var(--ink); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+ol.steps { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 70ch; }
+code { font: 0.85em var(--mono); background: var(--surface); border: 1px solid var(--line); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+details summary { cursor: pointer; font: 600 0.85rem var(--mono); letter-spacing: 0.04em; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">EKVC Season 4 · engine category · design review</span>
+    <h1>Ten kart concepts</h1>
+    <p class="muted">Every kart carries a side-mounted Yamaha R15 V2 on the right, a chromoly frame and the full safety kit. Each was generated from the team's steering sketch and checked automatically against the rulebook's vehicle requirements, plus a clash scan with the front tyres swept through full lock.</p>
+    <div class="specs" id="specs"></div>
+  </header>
+
+  <section style="display:grid;gap:16px">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end">
+      <h2>Lineup</h2>
+      <span class="muted" style="font-size:.85rem">Select a kart to open its sheet.</span>
+    </div>
+    <div class="lineup" id="lineup"></div>
+  </section>
+
+  <section class="detail" id="detail" aria-live="polite"></section>
+
+  <section class="two">
+    <div style="display:grid;gap:12px">
+      <h2>Shared package</h2>
+      <div class="tablewrap"><table>
+        <tbody>
+          <tr><th>Engine</th><td>Yamaha R15 V2, 149.8 cc single-cylinder 4-stroke, liquid cooled, 6-speed. Envelope model: check mounting points against the real engine.</td></tr>
+          <tr><th>Drive</th><td>#428 chain 14T / 34T, 66 links, live 40 × 4 mm axle on 3 flange bearings, aluminium scatter shield</td></tr>
+          <tr><th>Brake</th><td>Hydraulic, single 180 mm disc on the live axle, twin-piston caliper, 5/8 in master cylinder with its own reservoir, over-travel switch</td></tr>
+          <tr><th>Steering</th><td>Column at 33°, 90 mm pitman arm, two tie rods, 155 mm knuckle arms with the angle tuned per kart, 10° caster, 280 mm round wheel, stops on the chassis</td></tr>
+          <tr><th>Driver</th><td>175 cm driver, 20° back angle, CBA hanging pedals, 1 kg extinguisher on the left rail, 3 kill switches</td></tr>
+          <tr><th>Frame tube</th><td>AISI 4130 seamless 25.4 × 1.65 mm, 76 mm bend radius, single-piece roll hoop with 2 rear braces</td></tr>
+          <tr><th>Connectors</th><td>Bolted double-tab chassis-to-bumper joints, 6 mm plate, 2 × M8 grade 8.8 + nyloc each</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div style="display:grid;gap:12px;align-content:start">
+      <h2>Getting SLDPRT files</h2>
+      <ol class="steps">
+        <li>SolidWorks: <b>Tools › Options › System Options › Import</b>, untick <b>Enable 3D Interconnect</b>.</li>
+        <li><b>Tools › Macro › New</b>, then in the VBA editor <b>File › Import File</b> and choose <code>solidworks_macro/EKVC_STEP_to_SLDPRT_and_SLDASM.bas</code>. Run <code>main</code>.</li>
+        <li>Paste the path of the repository's <code>output</code> folder. The macro saves an <code>.SLDPRT</code> next to every STEP part and builds <code>&lt;style&gt;.SLDASM</code> for all ten karts.</li>
+      </ol>
+      <p class="muted" style="font-size:.88rem">Quick route for one kart: open <code>output/&lt;style&gt;/&lt;style&gt;_ASSEMBLY.step</code> in SolidWorks and use Save As. Branch <code>claude/kind-brahmagupta-vfebio</code> of <code>trafarsh/ekvc-gokart-cad</code>.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+const DATA = /*__DATA__*/[];
+const VIEWS = [["iso","Front 3/4"],["iso_rear","Rear 3/4"],["top","Plan"],["side","Right side"],["side_driver","With driver"]];
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const num = c => c.replace(/^S0?/, "");
+const inch = s => { const m = /\(([\d.]+) in\)/.exec(s); return m ? m[1] + " in" : s; };
+
+function specs() {
+  const lens = DATA.map(d => parseFloat(/\(([\d.]+) in\)/.exec(d.length)[1]));
+  const turn = DATA.map(d => d.turn.match(/[\d.]+/g).map(Number)).flat();
+  const hoop = DATA.map(d => parseFloat(d.hoop));
+  const pass = DATA.filter(d => d.fails.length === 0).length;
+  const items = [
+    ["Bumper to bumper", `${Math.min(...lens).toFixed(1)}–${Math.max(...lens).toFixed(1)} in`],
+    ["Limit", "< 65 in"],
+    ["Turning radius", `${Math.min(...turn).toFixed(2)}–${Math.max(...turn).toFixed(2)} m`],
+    ["Hoop over helmet", `${Math.min(...hoop).toFixed(0)} mm min`],
+    ["Rule checks", `${pass} / ${DATA.length} karts clean`],
+  ];
+  $("#specs").innerHTML = items.map(([k, v]) => `<div class="spec"><span class="k">${k}</span><span class="v">${v}</span></div>`).join("");
+}
+
+function lineup() {
+  $("#lineup").innerHTML = DATA.map(d => `
+    <button class="card" data-code="${d.code}" aria-pressed="false">
+      <div class="ph"><img src="${d.thumb}" alt="${esc(d.name)} kart, front three-quarter render" loading="lazy"></div>
+      <div class="info">
+        <div class="top"><span class="disc">${num(d.code)}</span><div><div class="nm">${esc(d.name)}</div>
+          <div class="muted" style="font-size:.78rem"><span class="sw" style="background:${d.colour_hex}"></span>frame · <span class="sw" style="background:${d.body_hex}"></span>body</div></div></div>
+        <div class="kv">
+          <span>Wheelbase</span><span>${d.wheelbase_in.toFixed(1)} in</span>
+          <span>Track F/R</span><span>${d.ftrack_in.toFixed(1)} / ${d.rtrack_in.toFixed(1)} in</span>
+          <span>Length</span><span>${inch(d.length)}</span>
+          <span>Frame</span><span>${d.frame}</span>
+        </div>
+        <div><span class="pill ${d.fails.length ? "fail" : "pass"}">${d.rules_pass}/${d.rules_total} RULES</span>
+          <span class="pill ${d.clashes ? "fail" : "pass"}">${d.clashes === null ? "–" : d.clashes} CLASHES</span></div>
+      </div>
+    </button>`).join("");
+  document.querySelectorAll(".card").forEach(b => b.addEventListener("click", () => select(b.dataset.code, true)));
+}
+
+let view = "iso";
+function select(code, scroll) {
+  const d = DATA.find(x => x.code === code) || DATA[0];
+  document.querySelectorAll(".card").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.code === d.code)));
+  const rows = d.rules.map(r => `<tr><td class="ref">${esc(r.ref)}</td><td>${esc(r.rule)}</td><td class="muted">${esc(r.requirement)}</td><td>${esc(r.value)}</td>
+     <td><span class="pill ${r.status === "PASS" ? "pass" : "fail"}">${r.status}</span></td></tr>`).join("");
+  const tabs = VIEWS.filter(([k]) => d.views[k]).map(([k, l]) => `<button class="tab" role="tab" data-v="${k}" aria-selected="${k === view}">${l}</button>`).join("");
+  $("#detail").innerHTML = `
+    <div class="dhead"><span class="disc big">${num(d.code)}</span>
+      <div><span class="eyebrow">${d.code} · folder output/${esc(d.slug)}</span><h2>${esc(d.name)}</h2><p class="muted">${esc(d.blurb)}</p></div></div>
+    <div class="dgrid">
+      <div style="display:grid;gap:10px;min-width:0">
+        <div class="tabs" role="tablist">${tabs}</div>
+        <div class="viewer"><img id="bigimg" src="${d.views[view] || d.views.iso}" alt="${esc(d.name)} render"></div>
+      </div>
+      <div class="side">
+        <div class="box"><h3>Dimensions</h3><div class="kv">
+          <span>Wheelbase</span><span>${d.wheelbase_in.toFixed(2)} in</span>
+          <span>Front track</span><span>${d.ftrack_in.toFixed(2)} in c-c</span>
+          <span>Rear track</span><span>${d.rtrack_in.toFixed(2)} in c-c</span>
+          <span>Bumper to bumper</span><span>${esc(d.length)}</span>
+          <span>Ground clearance</span><span>${esc(d.gc.split(" (")[0])}</span>
+          <span>Hoop over helmet</span><span>${esc(d.hoop)}</span>
+          <span>Turning radius</span><span>${esc(d.turn)}</span>
+          <span>Ackermann</span><span>${esc(d.ack.split(" (")[0])} at lock</span>
+          <span>Arm angle</span><span>${d.beta.toFixed(2)}°</span>
+          <span>Frame tube</span><span>${d.tube_m.toFixed(1)} m · ${d.tube_kg.toFixed(1)} kg</span>
+          <span>Unique parts</span><span>${d.n_parts}</span>
+        </div></div>
+        <div class="box"><h3>What makes it different</h3><div class="chips">
+          <span class="chip">frame: ${d.frame}</span><span class="chip">front bumper: ${d.front_bumper}</span>
+          <span class="chip">rear bumper: ${d.rear_bumper}</span><span class="chip">side bumpers: ${d.side_bumper}</span>
+          <span class="chip">nose: ${d.nose}</span><span class="chip">pods: ${d.pods}</span></div></div>
+      </div>
+    </div>
+    <details open><summary>Rule compliance – ${d.rules_pass} of ${d.rules_total} checks pass · ${d.clashes ?? "–"} part clashes · ${d.sweep ?? "–"} tyre-sweep contacts</summary>
+      <div class="tablewrap" style="margin-top:10px"><table>
+        <thead><tr><th>Rule</th><th>Check</th><th>Requirement</th><th>This kart</th><th>Result</th></tr></thead>
+        <tbody>${rows}</tbody></table></div></details>`;
+  document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+    view = t.dataset.v; $("#bigimg").src = d.views[view];
+    document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", String(x === t)));
+  }));
+  try { history.replaceState(null, "", "#" + d.code.toLowerCase()); } catch (e) {}
+  if (scroll) $("#detail").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start"});
+}
+
+specs(); lineup();
+const h = (location.hash || "").replace("#", "").toUpperCase();
+select(DATA.some(d => d.code === h) ? h : DATA[0].code, false);
+</script>
