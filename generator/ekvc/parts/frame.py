@@ -111,8 +111,9 @@ def plan(s, h):
         for zz, nm in ((L.Z_LM, "left"), (L.Z_RM, "right")):
             P["extra"].append(Member(f"Upper side rail {nm}", [(hoop_x(230.0), 230.0, zz), (xd, 230.0, zz)], "secondary"))
         P["extra"] += [Member("Floor diagonal", xz([(L.X_SEAT_XM, L.Z_LM), (xd, L.Z_RM)]), "bracing"),
-                       Member("Foot-guard brace left", [(L.X_FB, 330.0, L.Z_D - fg_half_at(330.0)), (1110.0, YR, z_at(straight_L, 1110.0))], "bracing"),
-                       Member("Foot-guard brace right", [(L.X_FB, 330.0, L.Z_D + fg_half_at(330.0)), (1110.0, YR, z_at(straight_R, 1110.0))], "bracing"),
+                       # lower ends just behind the front axle beam: ahead of the knuckle arms' swing at full lock
+                       Member("Foot-guard brace left", [(L.X_FB, 330.0, L.Z_D - fg_half_at(330.0)), (s.W - 20.0, YR, z_at(straight_L, s.W - 20.0))], "bracing"),
+                       Member("Foot-guard brace right", [(L.X_FB, 330.0, L.Z_D + fg_half_at(330.0)), (s.W - 20.0, YR, z_at(straight_R, s.W - 20.0))], "bracing"),
                        Member("Engine bay diagonal", xz([(L.X_CRADLE[1], L.Z_RM), (700.0, L.Z_EBAY)]), "bracing")]
     elif f == "minimal":
         P["floor_x"] = [L.X_SEAT_XM]
