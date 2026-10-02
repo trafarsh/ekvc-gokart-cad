@@ -145,7 +145,13 @@ def nose(s, h, col_axis_pts):
         (L.X_FB + 22.0, dict(hw=hwm, top=ytf, bot=128.0, zc=L.Z_D * 0.1)),
         (xf, dict(hw=hwf, top=ytfr, bot=ybf, zc=0.0)),
     ]
-    st = [(x, profile(shape, p["hw"], p["top"], p["bot"], zc=p["zc"])) for x, p in _smooth_stations(keys, 14)]
+    stations = _smooth_stations(keys, 14)
+    # over the front axle the nose side walls must stay inboard of the king-pin C-bracket webs
+    web_z = s.KH - L.KP_WEB_INBOARD - 3.0            # inner face of the web
+    for x, p in stations:
+        if abs(x - s.W) <= 110.0:          # stations bracketing the web (x = W +- 33)
+            p["hw"] = min(p["hw"], web_z - 3.0 - 2.0 - abs(p["zc"]))   # 3 mm shell + 2 mm clearance
+    st = [(x, profile(shape, p["hw"], p["top"], p["bot"], zc=p["zc"])) for x, p in stations]
     sh = loft_shell_x(st)
     # steering column clearance hole
     a, b = col_axis_pts
