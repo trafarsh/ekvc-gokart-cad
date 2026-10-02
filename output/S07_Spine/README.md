@@ -5,7 +5,7 @@ Central backbone tube with diagonal outriggers; F1-style narrow nose cone.
 * Wheelbase **46.50 in** (1181.1 mm), front track 37.00 in, rear track 42.40 in
 * Frame: `spine` - 18.5 m of 25.4 x 1.65 mm AISI 4130 chromoly, seamless (C 0.28-0.33 %) (~17.9 kg tube)
 * Bumpers: front `chevron`, rear `straight`, side `bar`; body: nose `f1`, pods `slim`
-* Steering: arm 155 mm at 8.00 deg, tie rods 289/409 mm (solver), lock inner 32.6 / outer 24.7 deg, R(outer front) 2.83 m, Ackermann 100 %
+* Steering: arm 155 mm at 15.50 deg, tie rods 270/389 mm (solver), lock inner 32.7 / outer 24.5 deg, R(outer front) 2.85 m, Ackermann 100 %
 
 ## Rule compliance (EKVC Season 4)
 
@@ -37,8 +37,8 @@ Central backbone tube with diagonal outriggers; F1-style narrow nose cone.
 | 4.1 | Steering mechanism | mechanical, no rack & pinion / by-wire | column + pitman arm + 2 tie rods (Ackermann) | ✅ PASS |
 | 4.2 | Steering wheel | >= 10 in OD full circle | 280 mm round | ✅ PASS |
 | 4.3 | Steering stops | positive stops on chassis | 2 adjustable stops on column lower bracket | ✅ PASS |
-| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.83 m / R 2.85 m | ✅ PASS |
-| info | Ackermann at lock | (design target ~100 %) | 100 % (inner 32.6 / outer 24.7 deg) | ✅ PASS |
+| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.85 m / R 2.80 m | ✅ PASS |
+| info | Ackermann at lock | (design target ~100 %) | 100 % (inner 32.7 / outer 24.5 deg) | ✅ PASS |
 | 5.1 | Brake system | hydraulic, acts on both rear wheels | single 180 mm disc on live axle, twin-piston caliper | ✅ PASS |
 | 5.2 | Brake pedal | foot operated, steel/Al, travel stop | AISI 4130 pedal with stop | ✅ PASS |
 | 5.3 | Brake over-travel switch | in series with kill switches | fitted ahead of pedal | ✅ PASS |
@@ -62,11 +62,13 @@ Central backbone tube with diagonal outriggers; F1-style narrow nose cone.
 * Part-to-part clashes (excluding intended welds/bolted contacts): **0**
 * Driver (175 cm reference manikin) contacts: 0
 * Front tyres swept lock-to-lock against frame/bumpers/body/steering: **0** contacts
+* Whole steering linkage (column, wheel, pitman arm, tie rods, knuckles, hubs, rims, tyres) moved lock-to-lock (column -50.8 to +48.8 deg), exactly as the SolidWorks live-steering mates move it: **0** new contacts
 
 ## Files
 
 * Assembly STEP: `S07_Spine_ASSEMBLY.step`
 * Placement table (SolidWorks macro): `placements.csv`
+* Live-steering mates (SolidWorks macro): `kinematics.csv`
 * Bill of materials: `BOM.csv`
 * Render iso: `renders/S07_iso.png`
 * Render iso_rear: `renders/S07_iso_rear.png`

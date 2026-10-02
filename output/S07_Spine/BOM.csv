@@ -89,12 +89,12 @@ C-STR-01,Steering column 22x3,1,steering,AISI 4130 tube 22 x 3,"Length 537 mm, 3
 C-STR-02,Steering wheel 280 OD round,1,steering,"Aluminium spokes, leather-wrapped rim","Full circle 280 mm OD (rule 4.2 >= 254 mm), quick-release hub",../common/parts/C-STR-02_Steering_wheel_280_OD_round.step
 C-STR-03,Pitman steering arm 8mm,1,steering,AISI 4130 plate 8 mm,"Welded to column, tie-rod pad at R90 (2x M8 vertical)",../common/parts/C-STR-03_Pitman_steering_arm_8mm.step
 C-STR-04,Column upper bearing bracket,1,steering,AISI 4130 + bronze bush,Bolted to dash bar (2x M8),../common/parts/C-STR-04_Column_upper_bearing_bracket.step
-C-STR-05,Column lower bracket with steering stops,1,steering,AISI 4130 plate 8 mm,Welded to front axle beam; M10 stop bolts set to full-lock pitman angle,../common/parts/C-STR-05_Column_lower_bracket_with_steering_stops.step
+C-STR-05,Column lower bracket with steering stops,1,steering,AISI 4130 plate 8 mm,Welded to front axle beam; M10 stop bolts stop the pitman arm at 52 deg (just past full lock),../common/parts/C-STR-05_Column_lower_bracket_with_steering_stops.step
 C-STR-06,King pin bolt M10x130 + nyloc,2,steering,Grade 10.9 bolt + Nyloc nut,Caster 10 deg,../common/parts/C-STR-06_King_pin_bolt_M10x130_nyloc.step
-S07-STR-11,Steering knuckle left,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 8.00 deg (Ackermann tuned), caster 10 deg",parts/S07-STR-11_Steering_knuckle_left.step
-S07-STR-12,Steering knuckle right,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 8.00 deg (Ackermann tuned), caster 10 deg",parts/S07-STR-12_Steering_knuckle_right.step
-S07-STR-13,Tie rod left C-C 289,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 289.5 mm (adjustable +-10),parts/S07-STR-13_Tie_rod_left_C_C_289.step
-S07-STR-14,Tie rod right C-C 409,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 409.3 mm (adjustable +-10),parts/S07-STR-14_Tie_rod_right_C_C_409.step
+S07-STR-11,Steering knuckle left,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 15.50 deg (Ackermann tuned), caster 10 deg",parts/S07-STR-11_Steering_knuckle_left.step
+S07-STR-12,Steering knuckle right,1,steering,AISI 4130 (boss + 20 mm stub axle + 8 mm arm),"Arm 155 mm at 15.50 deg (Ackermann tuned), caster 10 deg",parts/S07-STR-12_Steering_knuckle_right.step
+S07-STR-13,Tie rod left C-C 270,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 269.7 mm (adjustable +-10),parts/S07-STR-13_Tie_rod_left_C_C_270.step
+S07-STR-14,Tie rod right C-C 389,1,steering,"M10 rod ends + 12 mm steel rod, LH/RH thread",Centre-to-centre 389.5 mm (adjustable +-10),parts/S07-STR-14_Tie_rod_right_C_C_389.step
 C-WHL-01,Front tyre 4.5x10.0-5 slick,2,wheels,Rubber (bought out),Rule 2.2 table 1 dry tyre 4.5x10.0-5,../common/parts/C-WHL-01_Front_tyre_4_5x10_0_5_slick.step
 C-WHL-02,Rear tyre 7.1x11.0-5 slick,2,wheels,Rubber (bought out),Rule 2.2 table 1 dry tyre 7.1x11.0-5,../common/parts/C-WHL-02_Rear_tyre_7_1x11_0_5_slick.step
 C-WHL-03,Front rim 5in x 4.5,2,wheels,Cast aluminium A356-T6,Bolts to hub with 3x M8 on PCD 58,../common/parts/C-WHL-03_Front_rim_5in_x_4_5.step
