@@ -17,7 +17,7 @@ kill switches, brake light, extinguisher, fuel tank, radiator, exhaust, and hitc
 | Engine | Yamaha R15 V2, 149.8 cc single-cylinder 4-stroke, liquid cooled – mounted on the **right**, chain on its inboard side |
 | Drive | #428 chain 14T / 34T (66 links), live 40 mm axle, 3 flange bearings |
 | Brake | Hydraulic, one 180 mm disc on the live axle (locks both rear wheels), 5/8 in master cylinder with own reservoir, over-travel switch |
-| Steering | Column + pitman arm + 2 tie rods, knuckle arms tuned per style for ~100 % Ackermann at lock, outer-wheel turning radius ≈ 2.8 m (rule ≤ 3 m), 280 mm round wheel, positive stops on the chassis |
+| Steering | Column + pitman arm + 2 tie rods, knuckle arms tuned per style for ~100 % Ackermann at lock (computed at the real rod-end ball centres), outer-wheel turning radius ≈ 2.8 m (rule ≤ 3 m), 280 mm round wheel, positive stops on the chassis at 52° column rotation (full lock 49–51°) |
 | Driver | Designed around a 175 cm driver: back angle 20°, roll-hoop top 115 mm above the helmet (rule ≥ 76 mm), foot guard 92 mm above the toes (rule ≥ 76 mm) |
 | Tyres | 4.5×10.0-5 front, 7.1×11.0-5 rear (rule table 1, dry D1) |
 
@@ -40,9 +40,11 @@ Each style folder has its own `README.md` with the full **rule-compliance table*
 data, interference-check results and renders (`output/<style>/renders/`).
 
 **Check results (all ten styles):** 45 / 45 automated rule checks pass, **0 part-to-part clashes**
-(intended welds and bolted joints excluded) and **0 contacts** when both front tyres are swept
-lock-to-lock against the frame, bumpers, connectors, steering and bodywork. The 175 cm reference
-driver has no interference with anything except the seat and steering-wheel grips.
+(intended welds and bolted joints excluded), **0 contacts** when both front tyres are swept
+lock-to-lock against the frame, bumpers, connectors, steering and bodywork, and **0 contacts** when the
+whole steering linkage (column, wheel, pitman arm, tie rods, knuckles, hubs, rims, tyres) is moved
+lock-to-lock exactly as the SolidWorks live-steering mates move it. The 175 cm reference driver has
+no interference with anything except the seat and steering-wheel grips.
 
 ## Getting SolidWorks `.SLDPRT` / `.SLDASM` files
 
@@ -61,7 +63,31 @@ The macro saves an `.SLDPRT` next to every `.step` and then builds
 fixed in place. Re-running skips files that already exist.
 
 *Quick alternative:* **File ▸ Open** any `output/<style>/<style>_ASSEMBLY.step` → SolidWorks imports
-the whole kart as an assembly; **File ▸ Save As** then saves the `.SLDASM` and all part files.
+the whole kart as an assembly; **File ▸ Save As** then saves the `.SLDASM` and all part files
+(this route gives a static assembly - no live steering).
+
+### Live steering in SolidWorks (turn the wheel, the front wheels steer)
+
+The macro also turns every `.SLDASM` into a working steering mechanism, using
+`output/<style>/kinematics.csv`:
+
+| Moving part | How it is mated |
+|---|---|
+| Steering column | revolute about the column axis (point coincident + point on axis, to the frame) |
+| Steering wheel, pitman arm | locked to the column |
+| Knuckle L / R | revolute about its king-pin axis |
+| Front hub, rim, tyre | locked to their knuckle |
+| Tie rod L / R | ball joint at each rod-end centre (pitman arm and knuckle arm) |
+| Steering lock | `LimitDistance` mate stops the column at full lock (≈ ±49–51°) |
+
+The joint points and axes are tiny 3D sketches named `KIN_...` that the macro adds to the frame,
+column, pitman arm, knuckles and tie rods. **To steer: drag the steering wheel (or a front tyre) with the
+left mouse button.** Everything else stays fixed. Hide the joint sketches with *View ▸ Hide/Show ▸ Sketches*.
+For an animation, add a *Motion Study* with a rotary motor on the steering column.
+
+Already built the assemblies? Run the macro entry **`live_steering`** instead of `main` to add only the
+steering mates. If a mate cannot be made, the end-of-run message lists it (nothing else is changed).
+If the steering will not turn at all, suppress the `LimitDistance1` mate: that mate is only the lock stop.
 
 ## Repository layout
 
@@ -74,6 +100,7 @@ output/
     S01_ClassicSprint_ASSEMBLY.step complete kart assembly
     parts/*.step                   style-specific parts (frame, bumpers, connectors, knuckles, body ...)
     placements.csv                 transform of every component (used by the macro)
+    kinematics.csv                 joint points/axes + mates for live steering (used by the macro)
     BOM.csv                        bill of materials with materials and notes
     README.md                      rule-compliance report, steering data, clash results
     renders/*.png
@@ -119,3 +146,6 @@ Changing the tube (e.g. to AISI 1018, 25.4 × 2.0) is a two-line edit (`TUBE_WAL
 * Bodywork is a 3 mm shell for fit/visual purposes; real panels need mounting brackets.
 * Bumper foam is modelled as a continuous sleeve; in practice slit it around the connector tabs and bolts.
 * The orange manikin (`REF driver`) is reference geometry only – suppress it before drawings/BOM.
+* The live-steering macro was written against the SolidWorks API but could not be run here (no
+  SolidWorks in the build environment); the motion it reproduces is verified in Python (see the
+  linkage sweep in each style's `README.md`).
