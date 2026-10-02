@@ -155,9 +155,8 @@ ALLOW = [
     ("Side pod*", "*bolt*"), ("Side pod*", "*nut*"), ("Nose", "Front bumper foam"), ("Rear panel", "Rear bumper foam"),
     ("*connector chassis tab*", "*connector bumper tab*"), ("*bolt*", "*tab*"), ("*nut*", "*tab*"), ("*bolt*", "*nut*"),
     ("Tyre *", "Rim *"), ("Rim *", "*hub*"), ("Tyre *", "*hub*"), ("Front hub*", "Knuckle*"), ("Knuckle*", "King pin bolt*"),
-    ("Knuckle*", "Main frame"), ("Knuckle*", "Tie rod*"), ("Tie rod*", "Pitman arm"),
+    ("Knuckle*", "Tie rod*"), ("Tie rod*", "Pitman arm"),
     ("Steering column", "Steering wheel"), ("Steering column", "Pitman arm"), ("Steering column", "Column*"),
-    ("Pitman arm", "Column lower bracket"),
     ("Rear axle", "Rear hub*"), ("Rear axle", "Axle bearing*"), ("Rear axle", "Sprocket carrier"), ("Rear axle", "Disc carrier"),
     ("Rear axle", "Bearing hanger*"), ("Rear axle", "Axle sprocket"), ("Rear axle", "Brake disc"), ("Rear axle", "Scatter shield"),
     ("Axle bearing*", "Bearing hanger*"), ("Axle sprocket", "Sprocket carrier"), ("Axle sprocket", "Chain"),
@@ -221,6 +220,86 @@ def clashes(I, info, min_vol=20.0, include_ref=True):
             if vol > min_vol:
                 out.append((ia.name, ib.name, vol))
     return out
+
+
+def steering_poses(I, info, steps=9):
+    """Move the whole steering linkage (column + wheel + pitman, both knuckles with hub/rim/tyre,
+    both tie rods) through lock-to-lock exactly as the SolidWorks mates do.
+    Yields (column_deg, {instance name: moved shape})."""
+    from .steering import Linkage
+    s, h, st = info["style"], info["hard"], info["steer"]
+    lk = Linkage(s, h)
+    rep = st["rep"]
+    by = {i.name: i for i in I}
+    col = ["Steering column", "Steering wheel", "Pitman arm"]
+    kn = {-1: ["Knuckle L", "Front hub LF", "Rim LF", "Tyre LF"], 1: ["Knuckle R", "Front hub RF", "Rim RF", "Tyre RF"]}
+    tr = {-1: "Tie rod L", 1: "Tie rod R"}
+    base = {n: by[n].pl.apply(by[n].part.shape) for n in col + kn[-1] + kn[1] + list(tr.values())}
+    cb, ca, kax = cq.Vector(*lk.cb), cq.Vector(*lk.col_axis), cq.Vector(*lk.k_axis)
+    left = np.linspace(0.0, math.radians(rep["left"]["pitman_deg"]), steps // 2 + 1)
+    right = np.linspace(0.0, math.radians(rep["right"]["pitman_deg"]), steps // 2 + 1)[1:]
+    for seq in (left, right):                     # straight-ahead -> left lock, then -> right lock
+        guess = {-1: 0.0, 1: 0.0}
+        for phi in seq:
+            out = {}
+            for n in col:
+                out[n] = base[n].rotate(cb, cb + ca, math.degrees(phi))
+            for sd in (-1, 1):
+                d = lk.solve(sd, phi, guess[sd])
+                guess[sd] = d
+                kp = cq.Vector(*lk.kp[sd])
+                for n in kn[sd]:
+                    out[n] = base[n].rotate(kp, kp + kax, math.degrees(d))
+                p0, a0 = lk.p0[sd], lk.arm0[sd]
+                p1, a1 = lk.pit(sd, phi), lk.arm(sd, d)
+                u0, u1 = (a0 - p0) / np.linalg.norm(a0 - p0), (a1 - p1) / np.linalg.norm(a1 - p1)
+                ax = np.cross(u0, u1)
+                sh = base[tr[sd]]
+                if np.linalg.norm(ax) > 1e-9:
+                    ang = math.degrees(math.atan2(np.linalg.norm(ax), float(u0 @ u1)))
+                    sh = sh.rotate(cq.Vector(*p0), cq.Vector(*(p0 + ax)), ang)
+                out[tr[sd]] = sh.translate(cq.Vector(*(p1 - p0)))
+            yield math.degrees(float(phi)), out
+
+
+def linkage_sweep_clashes(I, info, steps=9, min_vol=20.0):
+    """Interference of every moving steering part with the fixed kart and with the other moving
+    groups, over lock-to-lock.  Contacts already present at straight-ahead (bolted joints, the
+    knuckle bosses in the king-pin brackets ...) are the baseline; only growth is reported."""
+    groups = {"Steering column": "col", "Steering wheel": "col", "Pitman arm": "col",
+              "Knuckle L": "KL", "Front hub LF": "KL", "Rim LF": "KL", "Tyre LF": "KL",
+              "Knuckle R": "KR", "Front hub RF": "KR", "Rim RF": "KR", "Tyre RF": "KR",
+              "Tie rod L": "TL", "Tie rod R": "TR"}
+    joints = {frozenset(("TL", "col")), frozenset(("TR", "col")), frozenset(("TL", "KL")), frozenset(("TR", "KR"))}
+    fixed = [(i.name, i.pl.apply(i.part.shape)) for i in I if i.name not in groups and i.part.group != "reference"]
+    fbb = [_bb(sh) for _, sh in fixed]
+    base, out = {}, {}
+    for deg, mv in steering_poses(I, info, steps):
+        names = list(mv)
+        mbb = {n: _bb(mv[n]) for n in names}
+        pairs = []
+        for n in names:
+            for (fn, fsh), bb in zip(fixed, fbb):
+                if _overlap(mbb[n], bb):
+                    pairs.append((n, fn, mv[n], fsh))
+        for a in range(len(names)):
+            for b in range(a + 1, len(names)):
+                na, nb = names[a], names[b]
+                ga, gb = groups[na], groups[nb]
+                if ga == gb or frozenset((ga, gb)) in joints:
+                    continue
+                if _overlap(mbb[na], mbb[nb]):
+                    pairs.append((na, nb, mv[na], mv[nb]))
+        for na, nb, sa, sb in pairs:
+            v = _common_vol(sa, sb)
+            key = (na, nb)
+            if deg == 0.0:
+                base[key] = v
+                continue
+            if v - max(base.get(key, 0.0), 0.0) > min_vol:
+                if key not in out or v > out[key][1]:
+                    out[key] = (round(deg, 1), v)
+    return [(a, b, d, v) for (a, b), (d, v) in sorted(out.items())]
 
 
 def tyre_sweep_clashes(I, info, steps=5):

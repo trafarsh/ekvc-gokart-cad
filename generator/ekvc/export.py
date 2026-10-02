@@ -100,7 +100,7 @@ def renders(I, s, views=("iso", "iso_rear", "top", "side"), size=(1600, 1150)):
     return out
 
 
-def report(I, info, rules, clashes, sweep, files):
+def report(I, info, rules, clashes, sweep, files, linkage=None):
     s, h, st = info["style"], info["hard"], info["steer"]
     rep = st["rep"]
     fm = info["frame_meta"]
@@ -130,6 +130,12 @@ def report(I, info, rules, clashes, sweep, files):
         lines.append(f"* Front tyres swept lock-to-lock against frame/bumpers/body/steering: **{len(sweep)}** contacts")
         for x in sweep:
             lines.append(f"  * {x[0]} at {x[2]} deg <-> {x[1]}: {x[3]:.0f} mm3")
+    if linkage is not None:
+        lines.append(f"* Whole steering linkage (column, wheel, pitman arm, tie rods, knuckles, hubs, rims, tyres) moved "
+                     f"lock-to-lock (column {rep['right']['pitman_deg']:+.1f} to {rep['left']['pitman_deg']:+.1f} deg), "
+                     f"exactly as the SolidWorks live-steering mates move it: **{len(linkage)}** new contacts")
+        for a, b, d, v in linkage:
+            lines.append(f"  * {a} <-> {b} at column {d} deg: {v:.0f} mm3")
     lines += ["", "## Files", ""]
     for k, v in files.items():
         lines.append(f"* {k}: `{os.path.relpath(v, style_dir(s))}`")
@@ -139,7 +145,7 @@ def report(I, info, rules, clashes, sweep, files):
     return p
 
 
-def summary_json(info, rules, clashes, sweep, bom_rows):
+def summary_json(info, rules, clashes, sweep, bom_rows, linkage=None):
     s, h, st = info["style"], info["hard"], info["steer"]
     rep = st["rep"]
     P = {r["rule"]: r for r in rules}
@@ -153,4 +159,5 @@ def summary_json(info, rules, clashes, sweep, bom_rows):
                 rules_pass=sum(1 for r in rules if r["status"] == "PASS"), rules_total=len(rules),
                 fails=[r["rule"] for r in rules if r["status"] != "PASS"],
                 clashes=None if clashes is None else len([c for c in clashes if "REF" not in c[0] and "REF" not in c[1]]),
-                sweep=None if sweep is None else len(sweep), n_parts=len(bom_rows), rules=rules)
+                sweep=None if sweep is None else len(sweep), linkage=None if linkage is None else len(linkage),
+                lock_deg=(rep["right"]["pitman_deg"], rep["left"]["pitman_deg"]), n_parts=len(bom_rows), rules=rules)

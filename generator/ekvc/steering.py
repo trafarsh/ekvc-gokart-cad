@@ -28,11 +28,12 @@ class Linkage:
         self.k_axis = np.array([-math.sin(c), math.cos(c), 0.0])
         self.kp = {sd: np.array([W, L.Y_FAX, sd * KH]) for sd in (-1, 1)}
         b = h.beta
+        # tie-rod joints = rod-end ball centres, exactly where the CAD tie rods put them
         self.arm0 = {sd: np.array([W - L.ARM_LEN * math.cos(b), L.Y_ARM, sd * (KH - L.ARM_LEN * math.sin(b))])
-                     for sd in (-1, 1)}
+                     + self.k_axis * L.TIE_EYE_RISE for sd in (-1, 1)}
         self.cb = np.array(h.cb)
         self.col_axis = -np.array(L.col_dir_down())        # pointing up/back to driver
-        self.p0 = {sd: np.array([h.arm_end_x, L.Y_ARM, L.Z_D + sd * 10.0]) for sd in (-1, 1)}
+        self.p0 = {sd: np.array([h.arm_end_x, L.Y_ARM - L.TIE_EYE_DROP, L.Z_D + sd * 10.0]) for sd in (-1, 1)}
         self.tie_len = {sd: float(np.linalg.norm(self.arm0[sd] - self.p0[sd])) for sd in (-1, 1)}
 
     def arm(self, sd, delta):

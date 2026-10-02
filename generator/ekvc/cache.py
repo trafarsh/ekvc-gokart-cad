@@ -27,7 +27,7 @@ def compute(code):
                 knuckle_range={str(k): v for k, v in rep["knuckle_range"].items()},
                 sweep_pts=np.round(pts[::3], 1).tolist(),
                 inputs=dict(W=s.W, FT=s.FT, RT=s.RT, ARM_LEN=L.ARM_LEN, PITMAN_R=L.PITMAN_R, CASTER=L.CASTER,
-                            Y_ARM=L.Y_ARM, COL_ANGLE=L.COL_ANGLE, Z_D=L.Z_D))
+                            Y_ARM=L.Y_ARM, COL_ANGLE=L.COL_ANGLE, Z_D=L.Z_D, TIE_EYE_DROP=L.TIE_EYE_DROP, TIE_EYE_RISE=L.TIE_EYE_RISE))
     os.makedirs(CACHE, exist_ok=True)
     with open(_path(code), "w") as f:
         json.dump(data, f)
@@ -41,7 +41,7 @@ def load(code, recompute=False):
             d = json.load(f)
         s = BY_CODE[code]
         inp = dict(W=s.W, FT=s.FT, RT=s.RT, ARM_LEN=L.ARM_LEN, PITMAN_R=L.PITMAN_R, CASTER=L.CASTER,
-                   Y_ARM=L.Y_ARM, COL_ANGLE=L.COL_ANGLE, Z_D=L.Z_D)
+                   Y_ARM=L.Y_ARM, COL_ANGLE=L.COL_ANGLE, Z_D=L.Z_D, TIE_EYE_DROP=L.TIE_EYE_DROP, TIE_EYE_RISE=L.TIE_EYE_RISE)
         if all(abs(d["inputs"].get(k, 1e9) - v) < 1e-6 for k, v in inp.items()):
             return d
     return compute(code)

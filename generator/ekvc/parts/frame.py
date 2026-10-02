@@ -196,16 +196,17 @@ def c_brackets(s):
     for sd in (-1, 1):
         kp = V(W, L.Y_FAX, sd * KH)
         half = L.KP_BOSS_LEN / 2 + 3.5
+        wi = L.KP_WEB_INBOARD             # web inboard of the boss, clear of the knuckle arm at full lock
         ears = []
         for t in (-1, 1):
             o = kp + k * (t * half)
-            ears.append(G.plate_on_plane(o, e1, V(0, 0, sd), [(-22, -30), (22, -30), (22, 0)] +
+            ears.append(G.plate_on_plane(o, e1, V(0, 0, sd), [(-22, -wi), (22, -wi), (22, 0)] +
                                          [(22 * math.cos(a), 22 * math.sin(a)) for a in np.linspace(0, math.pi, 9)][1:-1] +
                                          [(-22, 0)], 6))
         # web plate inboard of the boss, from lower ear down to the beam
-        lo = kp + k * (-half) + V(0, 0, -sd * 30)
-        hi = kp + k * (half) + V(0, 0, -sd * 30)
-        web = G.plate_on_plane(V(0, 0, sd * (KH - 30)), V(1, 0, 0), V(0, 1, 0),
+        lo = kp + k * (-half) + V(0, 0, -sd * wi)
+        hi = kp + k * (half) + V(0, 0, -sd * wi)
+        web = G.plate_on_plane(V(0, 0, sd * (KH - wi)), V(1, 0, 0), V(0, 1, 0),
                                [(W - 24, YR - 6), (W + 24, YR - 6), (lo.x + 24, lo.y), (hi.x + 24, hi.y + 3),
                                 (hi.x - 24, hi.y + 3), (lo.x - 24, lo.y)], 6)
         b = G.fuse_all([*ears, web])

@@ -12,8 +12,8 @@ from . import PartDef
 from .colours import ALU, STEEL, ZINC
 
 V = cq.Vector
-Y_TIE_IN = L.Y_ARM - 9.0
-Y_TIE_OUT_OFF = 9.0
+Y_TIE_IN = L.Y_ARM - L.TIE_EYE_DROP
+Y_TIE_OUT_OFF = L.TIE_EYE_RISE
 
 
 def _k():

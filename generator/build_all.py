@@ -15,6 +15,8 @@ from ekvc import checks as K
 from ekvc import export as E
 from ekvc.styles import STYLES
 
+import export_kinematics as KX
+
 
 def run(code, fast=False):
     t0 = time.time()
@@ -24,18 +26,21 @@ def run(code, fast=False):
     rules = K.rule_checks(I, info)
     cl = None if fast else K.clashes(I, info)
     sw = K.tyre_sweep_clashes(I, info)
+    lsw = K.linkage_sweep_clashes(I, info)
     E.write_parts(I, s, skip_common=NO_COMMON)
     asm = E.write_assembly(I, s)
     pl = E.write_placements(I, s)
+    kin = KX.write(KX.style_rows(s))
     bom, rows = E.write_bom(I, s)
     rn = E.renders(I, s)
-    files = {"Assembly STEP": asm, "Placement table (SolidWorks macro)": pl, "Bill of materials": bom}
+    files = {"Assembly STEP": asm, "Placement table (SolidWorks macro)": pl, "Live-steering mates (SolidWorks macro)": kin,
+             "Bill of materials": bom}
     files.update({f"Render {k}": v for k, v in rn.items()})
-    E.report(I, info, rules, cl, sw, files)
-    js = E.summary_json(info, rules, cl, sw, rows)
+    E.report(I, info, rules, cl, sw, files, linkage=lsw)
+    js = E.summary_json(info, rules, cl, sw, rows, linkage=lsw)
     with open(os.path.join(E.style_dir(s), "summary.json"), "w") as f:
         json.dump(js, f, indent=1, default=str)
-    print(f"{code}: {js['rules_pass']}/{js['rules_total']} rules, clashes={js['clashes']}, sweep={js['sweep']}, "
+    print(f"{code}: {js['rules_pass']}/{js['rules_total']} rules, clashes={js['clashes']}, sweep={js['sweep']}, linkage={js['linkage']}, "
           f"length {js['length']}, {time.time() - t0:.0f}s", flush=True)
     return js
 

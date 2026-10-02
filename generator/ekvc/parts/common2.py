@@ -60,7 +60,7 @@ def pitman_arm():
     pts2 = [(-18, -16), (L.PITMAN_R - 6, -16), (L.PITMAN_R - 6, 16), (-18, 16)]
     s = G.plate_on_plane(o, d, Z, pts2, 8)
     s = s.fuse(G.ring(o, A_UP, 34, 22, 26))
-    y_eye_top = (L.Y_ARM - 9.0 + 5.0) - CB_Y
+    y_eye_top = (L.Y_ARM - L.TIE_EYE_DROP + 5.0) - CB_Y
     pad = G.box(tip.x - 16, tip.x + 16, y_eye_top, y_eye_top + 10, -24, 24)
     web = G.box(tip.x - 6, tip.x + 6, y_eye_top + 8, tip.y + 10, -16, 16)
     s = G.fuse_all([s, pad, web])
@@ -83,25 +83,35 @@ def column_upper_bracket():
                    "Bolted to dash bar (2x M8)", "steering")
 
 
-def column_lower_bracket(beam_dx=88.0):
-    """Lower bearing housing at the column bottom, plate down to the front axle beam, and two
-    adjustable positive steering stops acting on the pitman arm (rule 4.3 - on chassis)."""
-    c = A_UP * 18
+def column_lower_bracket():
+    """Lower bearing housing above the pitman arm, a plate leg down to the front axle beam that passes
+    the pitman on its forward side (clear of the arm over the whole steering range), and two adjustable
+    positive steering stops acting on the pitman arm (rule 4.3 - on chassis)."""
+    d, a = U_FWD * -1, A_UP                       # pitman direction at straight-ahead, column axis
+
+    def st(sv, tv):                               # (radial along the pitman, axial) -> local XY
+        p = d * sv + a * tv
+        return (p.x, p.y)
+
+    c = A_UP * 27                                 # housing 14..40 mm up the column, pitman hub ends at 13
+    beam_dx = 155.0 * math.cos(math.radians(15.5)) - L.PITMAN_R * L.col_u()[0]   # column bottom -> beam centre
     by = L.Y_RAIL + L.TUBE_OD / 2 - CB_Y
     housing = G.ring(c, A_UP, 44, 22.2, 26)
-    plate = G.plate_xy([(c.x - 18, c.y - 10), (c.x + 18, c.y + 4), (beam_dx + 20, by), (beam_dx - 26, by)], -4, 8)
+    foot_r, foot_f = (beam_dx - 24.0, by), (beam_dx + 24.0, by)
+    outline = [st(-20, 40), st(20, 40), st(20, 16), st(-24, 16), st(-24, -18), foot_r, foot_f, st(-62, -40), st(-62, 10)]
+    plate = G.plate_xy(outline, -4, 8)
     parts = [housing, plate]
-    # stop collar with two stop bolts at +-(lock+clearance) around the column axis
-    col = G.ring(A_UP * 9, A_UP, 70, 40, 6)
-    parts.append(col)
+    # stop collar with two stop bolts around the column axis
+    parts.append(G.ring(A_UP * 9, A_UP, 70, 40, 6))
+    # stop bolt (D10 at R30) touches the pitman arm edge (half width 16) at STEER_STOP_DEG of column rotation
+    stop_at = L.STEER_STOP_DEG + math.degrees(math.asin((16.0 + 5.0) / 30.0))
     for sgn in (-1, 1):
-        ang = sgn * 62 * D2R
-        rd = (U_FWD * -1) * math.cos(ang) + Z * math.sin(ang)
-        p = A_UP * 4 + rd * 30
-        parts.append(G.cyl(p, A_UP, 10, 18))
+        ang = sgn * stop_at * D2R
+        rd = d * math.cos(ang) + Z * math.sin(ang)
+        parts.append(G.cyl(A_UP * 4 + rd * 30, A_UP, 10, 18))
     s = G.fuse_all(parts).cut(G.cyl(c, A_UP, 22.2, 60))
     return PartDef("C-STR-05", "Column lower bracket with steering stops", s, STEEL, "AISI 4130 plate 8 mm",
-                   "Welded to front axle beam; M10 stop bolts set to full-lock pitman angle", "steering")
+                   f"Welded to front axle beam; M10 stop bolts stop the pitman arm at {L.STEER_STOP_DEG:.0f} deg (just past full lock)", "steering")
 
 
 def kingpin_bolt():
