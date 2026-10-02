@@ -28,6 +28,7 @@ def run(code, fast=False):
     sw = K.tyre_sweep_clashes(I, info)
     lsw = K.linkage_sweep_clashes(I, info)
     E.write_parts(I, s, skip_common=NO_COMMON)
+    E.prune_parts(I, s)
     asm = E.write_assembly(I, s)
     pl = E.write_placements(I, s)
     kin = KX.write(KX.style_rows(s))

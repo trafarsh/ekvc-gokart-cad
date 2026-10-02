@@ -40,6 +40,18 @@ def write_parts(I, s, written=None, skip_common=False):
     return written
 
 
+def prune_parts(I, s):
+    """Delete style part files that are no longer used (e.g. a tie rod renamed after a length change)."""
+    d = os.path.join(style_dir(s), "parts")
+    keep = {os.path.basename(part_path(i, s)) for i in I if i.scope != "common"}
+    gone = []
+    for f in os.listdir(d):
+        if f.lower().endswith((".step", ".sldprt")) and f not in keep and os.path.splitext(f)[0] + ".step" not in keep:
+            os.remove(os.path.join(d, f))
+            gone.append(f)
+    return gone
+
+
 def write_assembly(I, s):
     inst = []
     for i in I:
