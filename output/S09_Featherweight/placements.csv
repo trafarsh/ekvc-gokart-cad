@@ -70,16 +70,16 @@ Tyre RR,C-WHL-02,C-WHL-02_Rear_tyre_7_1x11_0_5_slick,common,../common/parts/C-WH
 Rim RR,C-WHL-04,C-WHL-04_Rear_rim_5in_x_7_1,common,../common/parts/C-WHL-04_Rear_rim_5in_x_7_1.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,139.7,533.4,0
 Rear hub RR,C-WHL-06,C-WHL-06_Rear_hub_40mm_keyed,common,../common/parts/C-WHL-06_Rear_hub_40mm_keyed.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,139.7,533.4,0
 Knuckle L,S09-STR-11,S09-STR-11_Steering_knuckle_left,style,parts/S09-STR-11_Steering_knuckle_left.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
-Tie rod L,S09-STR-13,S09-STR-13_Tie_rod_left_C_C_278,style,parts/S09-STR-13_Tie_rod_left_C_C_278.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
+Tie rod L,S09-STR-13,S09-STR-13_Tie_rod_left_C_C_258,style,parts/S09-STR-13_Tie_rod_left_C_C_258.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
 King pin bolt L,C-STR-06,C-STR-06_King_pin_bolt_M10x130_nyloc,common,../common/parts/C-STR-06_King_pin_bolt_M10x130_nyloc.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1168.4,127.0,-367.8,0
 Knuckle R,S09-STR-12,S09-STR-12_Steering_knuckle_right,style,parts/S09-STR-12_Steering_knuckle_right.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
-Tie rod R,S09-STR-14,S09-STR-14_Tie_rod_right_C_C_398,style,parts/S09-STR-14_Tie_rod_right_C_C_398.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
+Tie rod R,S09-STR-14,S09-STR-14_Tie_rod_right_C_C_377,style,parts/S09-STR-14_Tie_rod_right_C_C_377.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0
 King pin bolt R,C-STR-06,C-STR-06_King_pin_bolt_M10x130_nyloc,common,../common/parts/C-STR-06_King_pin_bolt_M10x130_nyloc.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1168.4,127.0,367.8,0
-Steering column,C-STR-01,C-STR-01_Steering_column_22x3,common,../common/parts/C-STR-01_Steering_column_22x3.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1063.7436,157.4804,-60.0,0
-Steering wheel,C-STR-02,C-STR-02_Steering_wheel_280_OD_round,common,../common/parts/C-STR-02_Steering_wheel_280_OD_round.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1063.7436,157.4804,-60.0,0
-Pitman arm,C-STR-03,C-STR-03_Pitman_steering_arm_8mm,common,../common/parts/C-STR-03_Pitman_steering_arm_8mm.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1063.7436,157.4804,-60.0,0
-Column upper bracket,C-STR-04,C-STR-04_Column_upper_bearing_bracket,common,../common/parts/C-STR-04_Column_upper_bearing_bracket.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1063.7436,157.4804,-60.0,0
-Column lower bracket,C-STR-05,C-STR-05_Column_lower_bracket_with_steering_stops,common,../common/parts/C-STR-05_Column_lower_bracket_with_steering_stops.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1063.7436,157.4804,-60.0,0
+Steering column,C-STR-01,C-STR-01_Steering_column_22x3,common,../common/parts/C-STR-01_Steering_column_22x3.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1067.8755,157.4804,-60.0,0
+Steering wheel,C-STR-02,C-STR-02_Steering_wheel_280_OD_round,common,../common/parts/C-STR-02_Steering_wheel_280_OD_round.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1067.8755,157.4804,-60.0,0
+Pitman arm,C-STR-03,C-STR-03_Pitman_steering_arm_8mm,common,../common/parts/C-STR-03_Pitman_steering_arm_8mm.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1067.8755,157.4804,-60.0,0
+Column upper bracket,C-STR-04,C-STR-04_Column_upper_bearing_bracket,common,../common/parts/C-STR-04_Column_upper_bearing_bracket.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1067.8755,157.4804,-60.0,0
+Column lower bracket,C-STR-05,C-STR-05_Column_lower_bracket_with_steering_stops,common,../common/parts/C-STR-05_Column_lower_bracket_with_steering_stops.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,1067.8755,157.4804,-60.0,0
 Rear axle,S09-DRV-01,S09-DRV-01_Rear_axle_40x4_L1127,style,parts/S09-DRV-01_Rear_axle_40x4_L1127.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,139.7,0.0,0
 Bearing hanger Z-420,C-DRV-03,C-DRV-03_Axle_bearing_hanger_plate_6mm,common,../common/parts/C-DRV-03_Axle_bearing_hanger_plate_6mm.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,-420.0,0
 Axle bearing Z-420,C-DRV-02,C-DRV-02_Axle_bearing_40mm_3_bolt_flange,common,../common/parts/C-DRV-02_Axle_bearing_40mm_3_bolt_flange.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,0.0,139.7,-412.0,0
@@ -135,9 +135,9 @@ Seat front mount -1,C-SEA-02,C-SEA-02_Seat_front_mount_block,common,../common/pa
 Seat rear mount -1,C-SEA-03,C-SEA-03_Seat_back_mount_tab,common,../common/parts/C-SEA-03_Seat_back_mount_tab.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,55.6016,400.0,-180.0,0
 Seat front mount 1,C-SEA-02,C-SEA-02_Seat_front_mount_block,common,../common/parts/C-SEA-02_Seat_front_mount_block.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,620.0,63.5,60.0,0
 Seat rear mount 1,C-SEA-03,C-SEA-03_Seat_back_mount_tab,common,../common/parts/C-SEA-03_Seat_back_mount_tab.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,55.6016,400.0,60.0,0
-Kill switch tab driver (dash),C-SAF-02,C-SAF-02_Kill_switch_mounting_hinge_tab,common,../common/parts/C-SAF-02_Kill_switch_mounting_hinge_tab.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,768.5259,318.7,-235.0,0
-Kill switch driver (dash),C-SAF-01,C-SAF-01_Kill_switch_enclosure,common,../common/parts/C-SAF-01_Kill_switch_enclosure.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,768.5259,318.7,-235.0,0
-Kill switch head driver (dash),C-SAF-01B,C-SAF-01B_Kill_switch_red_mushroom_head,common,../common/parts/C-SAF-01B_Kill_switch_red_mushroom_head.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,768.5259,318.7,-235.0,0
+Kill switch tab driver (dash),C-SAF-02,C-SAF-02_Kill_switch_mounting_hinge_tab,common,../common/parts/C-SAF-02_Kill_switch_mounting_hinge_tab.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,772.6578,318.7,-235.0,0
+Kill switch driver (dash),C-SAF-01,C-SAF-01_Kill_switch_enclosure,common,../common/parts/C-SAF-01_Kill_switch_enclosure.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,772.6578,318.7,-235.0,0
+Kill switch head driver (dash),C-SAF-01B,C-SAF-01B_Kill_switch_red_mushroom_head,common,../common/parts/C-SAF-01B_Kill_switch_red_mushroom_head.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,772.6578,318.7,-235.0,0
 Kill switch tab roll hoop left,C-SAF-02,C-SAF-02_Kill_switch_mounting_hinge_tab,common,../common/parts/C-SAF-02_Kill_switch_mounting_hinge_tab.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,-48.091,650.0,-342.7,0
 Kill switch roll hoop left,C-SAF-01,C-SAF-01_Kill_switch_enclosure,common,../common/parts/C-SAF-01_Kill_switch_enclosure.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,-48.091,650.0,-342.7,0
 Kill switch head roll hoop left,C-SAF-01B,C-SAF-01B_Kill_switch_red_mushroom_head,common,../common/parts/C-SAF-01B_Kill_switch_red_mushroom_head.step,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,-48.091,650.0,-342.7,0

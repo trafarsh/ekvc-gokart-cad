@@ -5,7 +5,7 @@ Full-length X bracing between the main rails for torsional stiffness; trapezoid 
 * Wheelbase **46.00 in** (1168.4 mm), front track 36.00 in, rear track 42.00 in
 * Frame: `xbrace` - 19.7 m of 25.4 x 1.65 mm AISI 4130 chromoly, seamless (C 0.28-0.33 %) (~19.0 kg tube)
 * Bumpers: front `trapezoid`, rear `trapezoid`, side `bar`; body: nose `wedge`, pods `wedge`
-* Steering: arm 155 mm at 7.50 deg, tie rods 278/398 mm (solver), lock inner 31.5 / outer 24.3 deg, R(outer front) 2.84 m, Ackermann 99 %
+* Steering: arm 155 mm at 15.25 deg, tie rods 258/377 mm (solver), lock inner 32.6 / outer 24.5 deg, R(outer front) 2.82 m, Ackermann 100 %
 
 ## Rule compliance (EKVC Season 4)
 
@@ -37,8 +37,8 @@ Full-length X bracing between the main rails for torsional stiffness; trapezoid 
 | 4.1 | Steering mechanism | mechanical, no rack & pinion / by-wire | column + pitman arm + 2 tie rods (Ackermann) | ✅ PASS |
 | 4.2 | Steering wheel | >= 10 in OD full circle | 280 mm round | ✅ PASS |
 | 4.3 | Steering stops | positive stops on chassis | 2 adjustable stops on column lower bracket | ✅ PASS |
-| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.84 m / R 2.82 m | ✅ PASS |
-| info | Ackermann at lock | (design target ~100 %) | 99 % (inner 31.5 / outer 24.3 deg) | ✅ PASS |
+| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.82 m / R 2.83 m | ✅ PASS |
+| info | Ackermann at lock | (design target ~100 %) | 100 % (inner 32.6 / outer 24.5 deg) | ✅ PASS |
 | 5.1 | Brake system | hydraulic, acts on both rear wheels | single 180 mm disc on live axle, twin-piston caliper | ✅ PASS |
 | 5.2 | Brake pedal | foot operated, steel/Al, travel stop | AISI 4130 pedal with stop | ✅ PASS |
 | 5.3 | Brake over-travel switch | in series with kill switches | fitted ahead of pedal | ✅ PASS |
@@ -62,11 +62,13 @@ Full-length X bracing between the main rails for torsional stiffness; trapezoid 
 * Part-to-part clashes (excluding intended welds/bolted contacts): **0**
 * Driver (175 cm reference manikin) contacts: 0
 * Front tyres swept lock-to-lock against frame/bumpers/body/steering: **0** contacts
+* Whole steering linkage (column, wheel, pitman arm, tie rods, knuckles, hubs, rims, tyres) moved lock-to-lock (column -48.8 to +48.8 deg), exactly as the SolidWorks live-steering mates move it: **0** new contacts
 
 ## Files
 
 * Assembly STEP: `S05_X-Brace_ASSEMBLY.step`
 * Placement table (SolidWorks macro): `placements.csv`
+* Live-steering mates (SolidWorks macro): `kinematics.csv`
 * Bill of materials: `BOM.csv`
 * Render iso: `renders/S05_iso.png`
 * Render iso_rear: `renders/S05_iso_rear.png`

@@ -26,9 +26,9 @@
  "overall": "1627.8 mm (64.09 in)",
  "gc": "35.0 mm (Firewall rear)",
  "hoop": "115.0 mm",
- "turn": "L 2.84 m / R 2.82 m",
- "ack": "99 % (inner 31.5 / outer 24.3 deg)",
- "beta": 7.499999999999999,
+ "turn": "L 2.82 m / R 2.83 m",
+ "ack": "100 % (inner 32.6 / outer 24.5 deg)",
+ "beta": 15.25,
  "tube_m": 16.880859692461293,
  "tube_kg": 16.31404469545284,
  "rules_pass": 45,
@@ -36,6 +36,11 @@
  "fails": [],
  "clashes": 0,
  "sweep": 0,
+ "linkage": 0,
+ "lock_deg": [
+  -48.81355932203389,
+  48.81355932203389
+ ],
  "n_parts": 102,
  "rules": [
   {
@@ -250,7 +255,7 @@
    "ref": "4.4",
    "rule": "Turning radius (outer front wheel)",
    "requirement": "<= 3 m",
-   "value": "L 2.84 m / R 2.82 m",
+   "value": "L 2.82 m / R 2.83 m",
    "status": "PASS",
    "note": ""
   },
@@ -258,7 +263,7 @@
    "ref": "info",
    "rule": "Ackermann at lock",
    "requirement": "(design target ~100 %)",
-   "value": "99 % (inner 31.5 / outer 24.3 deg)",
+   "value": "100 % (inner 32.6 / outer 24.5 deg)",
    "status": "PASS",
    "note": ""
   },
