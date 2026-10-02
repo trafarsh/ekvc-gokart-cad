@@ -22,13 +22,13 @@
   0.1,
   0.1
  ],
- "length": "1635.9 mm (64.40 in)",
- "overall": "1635.9 mm (64.40 in)",
+ "length": "1635.9 mm (64.41 in)",
+ "overall": "1635.9 mm (64.41 in)",
  "gc": "35.0 mm (Firewall rear)",
  "hoop": "115.0 mm",
- "turn": "L 2.81 m / R 2.84 m",
- "ack": "100 % (inner 33.2 / outer 25.1 deg)",
- "beta": 7.0,
+ "turn": "L 2.81 m / R 2.83 m",
+ "ack": "100 % (inner 33.8 / outer 25.2 deg)",
+ "beta": 14.999999999999998,
  "tube_m": 17.78771969246129,
  "tube_kg": 17.190454714968926,
  "rules_pass": 45,
@@ -36,6 +36,11 @@
  "fails": [],
  "clashes": 0,
  "sweep": 0,
+ "linkage": 0,
+ "lock_deg": [
+  -50.84745762711864,
+  50.84745762711864
+ ],
  "n_parts": 102,
  "rules": [
   {
@@ -74,7 +79,7 @@
    "ref": "User",
    "rule": "Front bumper to rear bumper (incl. foam)",
    "requirement": "< 65 in (1651 mm)",
-   "value": "1635.9 mm (64.40 in)",
+   "value": "1635.9 mm (64.41 in)",
    "status": "PASS",
    "note": "margin 15.1 mm"
   },
@@ -82,7 +87,7 @@
    "ref": "User",
    "rule": "Overall length (any component)",
    "requirement": "< 65 in, nothing beyond bumpers",
-   "value": "1635.9 mm (64.40 in)",
+   "value": "1635.9 mm (64.41 in)",
    "status": "PASS",
    "note": ""
   },
@@ -90,7 +95,7 @@
    "ref": "info",
    "rule": "Overall width",
    "requirement": "(info)",
-   "value": "1311 mm (51.6 in)",
+   "value": "1310 mm (51.6 in)",
    "status": "PASS",
    "note": ""
   },
@@ -250,7 +255,7 @@
    "ref": "4.4",
    "rule": "Turning radius (outer front wheel)",
    "requirement": "<= 3 m",
-   "value": "L 2.81 m / R 2.84 m",
+   "value": "L 2.81 m / R 2.83 m",
    "status": "PASS",
    "note": ""
   },
@@ -258,7 +263,7 @@
    "ref": "info",
    "rule": "Ackermann at lock",
    "requirement": "(design target ~100 %)",
-   "value": "100 % (inner 33.2 / outer 25.1 deg)",
+   "value": "100 % (inner 33.8 / outer 25.2 deg)",
    "status": "PASS",
    "note": ""
   },

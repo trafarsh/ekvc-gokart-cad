@@ -5,7 +5,7 @@ Main rails bowed outward around the seat with an X under the floor; curved bumpe
 * Wheelbase **46.00 in** (1168.4 mm), front track 37.50 in, rear track 42.60 in
 * Frame: `bowed` - 18.3 m of 25.4 x 1.65 mm AISI 4130 chromoly, seamless (C 0.28-0.33 %) (~17.7 kg tube)
 * Bumpers: front `arc`, rear `arc`, side `arc`; body: nose `round`, pods `round`
-* Steering: arm 155 mm at 9.00 deg, tie rods 293/413 mm (solver), lock inner 31.9 / outer 24.2 deg, R(outer front) 2.85 m, Ackermann 100 %
+* Steering: arm 155 mm at 16.25 deg, tie rods 274/394 mm (solver), lock inner 33.1 / outer 24.5 deg, R(outer front) 2.82 m, Ackermann 100 %
 
 ## Rule compliance (EKVC Season 4)
 
@@ -37,8 +37,8 @@ Main rails bowed outward around the seat with an X under the floor; curved bumpe
 | 4.1 | Steering mechanism | mechanical, no rack & pinion / by-wire | column + pitman arm + 2 tie rods (Ackermann) | ✅ PASS |
 | 4.2 | Steering wheel | >= 10 in OD full circle | 280 mm round | ✅ PASS |
 | 4.3 | Steering stops | positive stops on chassis | 2 adjustable stops on column lower bracket | ✅ PASS |
-| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.85 m / R 2.82 m | ✅ PASS |
-| info | Ackermann at lock | (design target ~100 %) | 100 % (inner 31.9 / outer 24.2 deg) | ✅ PASS |
+| 4.4 | Turning radius (outer front wheel) | <= 3 m | L 2.82 m / R 2.83 m | ✅ PASS |
+| info | Ackermann at lock | (design target ~100 %) | 100 % (inner 33.1 / outer 24.5 deg) | ✅ PASS |
 | 5.1 | Brake system | hydraulic, acts on both rear wheels | single 180 mm disc on live axle, twin-piston caliper | ✅ PASS |
 | 5.2 | Brake pedal | foot operated, steel/Al, travel stop | AISI 4130 pedal with stop | ✅ PASS |
 | 5.3 | Brake over-travel switch | in series with kill switches | fitted ahead of pedal | ✅ PASS |
@@ -62,11 +62,13 @@ Main rails bowed outward around the seat with an X under the floor; curved bumpe
 * Part-to-part clashes (excluding intended welds/bolted contacts): **0**
 * Driver (175 cm reference manikin) contacts: 0
 * Front tyres swept lock-to-lock against frame/bumpers/body/steering: **0** contacts
+* Whole steering linkage (column, wheel, pitman arm, tie rods, knuckles, hubs, rims, tyres) moved lock-to-lock (column -48.8 to +48.8 deg), exactly as the SolidWorks live-steering mates move it: **0** new contacts
 
 ## Files
 
 * Assembly STEP: `S04_Bowfin_ASSEMBLY.step`
 * Placement table (SolidWorks macro): `placements.csv`
+* Live-steering mates (SolidWorks macro): `kinematics.csv`
 * Bill of materials: `BOM.csv`
 * Render iso: `renders/S04_iso.png`
 * Render iso_rear: `renders/S04_iso_rear.png`
